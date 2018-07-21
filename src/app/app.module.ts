@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './routes/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { YourQuoteComponent } from './routes/your-quote/your-quote.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    YourQuoteComponent
   ],
   imports: [
     BrowserModule,

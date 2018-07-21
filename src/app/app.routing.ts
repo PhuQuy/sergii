@@ -4,9 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './routes/home/home.component';
+import { YourQuoteComponent } from './routes/your-quote/your-quote.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'your-quote', component: YourQuoteComponent }
 ];
 
 @NgModule({
