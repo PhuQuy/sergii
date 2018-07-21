@@ -1,0 +1,60 @@
+<div class="page_start">
+  <div class="chat-assistant">
+    <div class="chat-assistant-inner">
+      <div class="chat-assistant-avatar">
+        <img src="/assets/images/icon.png" alt="" class="chat-assistant-avatar-img">
+      </div>
+      <div class="chat-assistant-name">RO-BOT</div>
+      <div class="chat-assistant-role">TELEHEALTH ASSISTANT</div>
+    </div>
+  </div>
+  <div class="fake_chat">
+    <div class="chat-msg ">
+      <div class="chat-msg-user">
+        <div class="chat-msg-avatar">
+          <div class="chat-msg-avatar-thumb">
+            <img src="/assets/images/fake-chat.png" class="chat-msg-avatar-image" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="chat-msg-main">
+        <div class="chat-msg-bubble-outer_wrap">
+          <div class="chat-msg-bubble-wrap" style="position: relative; visibility: visible;">
+            <div class="chat-msg-bubble  chat-msg-bubble--loaded " style="height: auto;">
+              <div class="chat-msg-bubble-inner">
+                <div class="chat-msg-bubble-bg "></div>
+                <div class="chat-msg-text">Hi, there!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-msg-bubble-outer_wrap" style="min-height: 48px;">
+          <div class="chat-msg-bubble-wrap" style="position: relative; visibility: visible;">
+            <div class="chat-msg-bubble  chat-msg-bubble--loaded " style="height: auto;">
+              <div class="chat-msg-bubble-inner">
+                <div class="chat-msg-bubble-bg "></div>
+                <div class="chat-msg-text">I’m the automated telehealth assistant that will help you fill out the medical questions. All your questions
+                  are transmitted securely and will ONLY be reviewed by a U.S. licensed physician.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form novalidate="">
+    <div class="page_start-agreement">
+      <div class="form-check" (click)="confirm = !confirm">
+        <label class="form-check-label" >
+          <input class="form-check-input" type="checkbox" [(ngModel)]="confirm" name="checkvalue" [checked]="confirm">
+          <span class="form-check-sign"></span>
+          <label>I consent to
+            <a href="#telemedicineLaws">Telehealth</a>
+          </label>
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="button button button--secondary button--block page_start-get_started button--secondary button--block"
+      [disabled]="confirm ? '' : 'true'" >Get started</button>
+  </form>
+</div>

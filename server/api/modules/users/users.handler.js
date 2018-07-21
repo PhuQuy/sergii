@@ -4,6 +4,6 @@ const User = mongoose.model('User');
 
 export function getAllUsers(req, res){
   User.find()
-    .then((users) => res.send({data: 'API Works'}))
+    .then((users) => res.send(users))
     .catch(() => res.sendStatus(500))
 }
