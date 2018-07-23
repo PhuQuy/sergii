@@ -43,26 +43,25 @@
         <div class="bg-red ">
           <h1>get your quote in minutes</h1>
         </div>
-        <img src="/assets/images/divider-orange.png" />
+        <img src="/assets/images/divider-orange.png" style="margin-top: -1px;"/>
         <br>
         <br>
         <br>
         <div class="quote">
           <span>I’m a</span>
           <div ngbDropdown class="d-inline-block">
-            <div ngbDropdownToggle>
-                <span>gender</span>
+            <div ngbDropdownToggle [style.color]="sex == 'gender' ? '#ccc' : '#f65e1b'">
+                <span >{{sex}}</span>
             </div>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
-              <button class="dropdown-item">Female</button>
-              <button class="dropdown-item">Male</button>
+              <button class="dropdown-item" (click)="sex = 'Female'">Female</button>
+              <button class="dropdown-item"  (click)="sex = 'Male'">Male</button>
             </div>
           </div>
           <div class="born-on">
             <span>born on</span>
             <div class="group-form-input invalid">
-              <input placeholder="dd-mm-yyyy" />
-              <span>Wrong</span>
+              <input class="datetime" placeholder="dd-mm-yyyy" />
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@
     <br>
     <br>
     <div class="text-center">
-      <button class="btn btn-red">next </button>
+      <button class="btn btn-red" [disabled]="sex == 'gender'">next </button>
     </div>
     <div class="footer">
       <div class="chat-us">

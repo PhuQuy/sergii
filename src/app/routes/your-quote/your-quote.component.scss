@@ -318,14 +318,11 @@ span.bread-crumbs-online ol li {
     font-style: static;
     color: #c00 !important;
   }
-  &.invalid {
-    input {
-      border: 1px solid $colorInvald;
-    }
-    span {
-      display: block;
-    }
+  .datetime {
+    margin-top: -6px;
+    text-align: center;
   }
+
 }
 
 .born-on {

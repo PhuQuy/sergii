@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YourQuoteComponent implements OnInit {
     confirm: boolean = false;
+    sex:string = 'gender';
     constructor() { }
 
     ngOnInit() {

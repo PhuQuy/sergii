@@ -83,6 +83,14 @@
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 
+@font-face {
+  font-family: 'MuseoSans_500';
+  font-style: normal;
+  font-weight: 500;
+  src: local('MuseoSans_500'), local('MuseoSans_500'), url("assets/fonts/MuseoSans_500.otf") format('otf');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
 /* latin-ext */
 
 @font-face {
@@ -231,7 +239,7 @@
 }
 
 body {
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: MuseoSans_500, Helvetica, sans-serif;
   padding: 0;
   background: white;
   line-height: 1.5em;
@@ -250,7 +258,7 @@ svg.svg-inline--fa {
   width: 21px;
 }
 
-button:focus {
+button:focus, input:focus {
   outline: none;
 }
 
