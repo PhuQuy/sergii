@@ -250,6 +250,17 @@ svg.svg-inline--fa {
   width: 21px;
 }
 
+button:focus {
+  outline: none;
+}
+
+.btn {
+  font-family: museo-sans-rounded, sans-serif;
+  font-weight: 500;
+  padding: 12px 35px 14px;
+  line-height: inherit;
+}
+
 a.btn-round svg {
   margin-top: 7px;
 }
@@ -3865,7 +3876,6 @@ strong {
   }
 }
 
-
 @keyframes flowQuestionTextLoadingAnimation {
   to {
     transform: rotate(1turn)
@@ -4002,7 +4012,6 @@ strong {
     padding-top: 0
   }
 }
-
 
 .chat__msg {
   display: flex;

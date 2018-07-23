@@ -32,7 +32,7 @@
         </div>
         <span class="back-icon">
           <i class="icon-back">
-          <img src="assets/images/arrow-down.png"/>
+            <img src="assets/images/arrow-down.png" />
           </i>
           <span>Back</span>
         </span>
@@ -49,29 +49,16 @@
         <br>
         <div class="quote">
           <span>I’m a</span>
-          <div class="dropdown">
-            <span>Gender</span>
-            <i class="icon">
-            <img src="assets/images/arrow-down.png"/>
-            </i>
-            <div class="dropdown-content open">
-              <p class="selected">Male</p>
-              <p>Female</p>
+          <div ngbDropdown class="d-inline-block">
+            <div ngbDropdownToggle>
+                <span>gender</span>
             </div>
-          </div>
-          <span>,</span>
-          <div class="dropdown">
-            <span>Smoker</span>
-            <i class="icon">
-            <img src="assets/images/arrow-down.png"/>
-            </i>
-            <div class="dropdown-content">
-              <p class="selected">Non-smoker</p>
-              <p>Smoker</p>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+              <button class="dropdown-item">Female</button>
+              <button class="dropdown-item">Male</button>
             </div>
           </div>
           <div class="born-on">
-            <i class="fas fa-info-circle"></i>
             <span>born on</span>
             <div class="group-form-input invalid">
               <input placeholder="dd-mm-yyyy" />
@@ -84,42 +71,8 @@
     <br>
     <br>
     <br>
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <h5>I want a:</h5>
-        <div class="block-click disable">
-          <h5>Renewable Term Policy</h5><i class="fas fa-info-circle"></i>
-          <p>Start with a low premium and enjoy the flexibility to renew each year.</p>
-        </div>
-        <div class="block-click">
-          <h5>Fixed Term Policy</h5><i class="fas fa-info-circle"></i>
-          <p>Premiums stay the same throughout the selected policy period.</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 text-center price">
-        <span>And a sum insured of</span>
-        <span id="price">S$ 50,000</span>
-        <!-- <div class="slider-range">
-          <div class="range">
-            <input type="range" min="1" max="7" steps="1" value="3">
-          </div>
-          <ul class="range-labels">
-            <li class="selected">Today</li>
-            <li class="selected">2 days</li>
-            <li class="active selected">3 days</li>
-            <li class="">4 days</li>
-            <li class="">5 days</li>
-            <li class="" >6 days</li>
-            <li class="">7 days</li>
-          </ul>
-        </div> -->
-        
-      </div>
-    </div>
     <div class="text-center">
-      <button class="btn btn-red disable">next </button>
+      <button class="btn btn-red">next </button>
     </div>
     <div class="footer">
       <div class="chat-us">
