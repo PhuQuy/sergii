@@ -17,7 +17,8 @@
     </div>
   </div>
   <div class="flow_header-progress">
-    <div class="flow_header-progress-inner" style="width: 11%;"></div>
+    <p><ngb-progressbar type="primary" [value]="percent" height="5px"></ngb-progressbar></p>
+    <!-- <div class="flow_header-progress-inner" style="width: 11%;"></div> -->
   </div>
 </header>
 <div class="quote" [hidden]="!(slide == 0)">

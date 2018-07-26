@@ -23,18 +23,25 @@ export class YourChoiseComponent implements OnInit {
     errorEmail;
 
     slide = 0;
+    percent = 0;
     constructor(public router: Router) { }
 
     ngOnInit() {
+        this.percent = this.slide * 100 / 7;
     }
 
     nextSlide() {
         this.slide++;
+        this.percent = this.slide * 100 / 7;
+
+
     }
 
     previousSlide() {
         if (this.slide > 0) {
             this.slide--;
+            this.percent = this.slide * 100 / 7;
+
         }
     }
 
