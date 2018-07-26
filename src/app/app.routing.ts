@@ -5,10 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './routes/home/home.component';
 import { YourQuoteComponent } from './routes/your-quote/your-quote.component';
+import { YourChoiseComponent } from './routes/your-choise/your-choise.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'your-quote', component: YourQuoteComponent }
+  { path: 'your-quote', component: YourQuoteComponent },
+  { path: 'your-answer', component: YourChoiseComponent }
+
 ];
 
 @NgModule({

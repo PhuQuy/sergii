@@ -1,0 +1,141 @@
+.flow-question {
+  max-width: 100%;
+  width: 600px;
+  margin: 0 auto;
+  padding: 60px 0 30px;
+}
+
+.flow-question-header {
+  margin-bottom: 35px;
+}
+
+.flow-question-header-title {
+  color: #21303d;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: 1.1px;
+  margin-bottom: 8px;
+}
+
+.flow-choice_list {
+  background: #fff;
+  overflow: hidden;
+}
+
+.flow-choice_list-item {
+  border: 1px solid #dae1e3;
+  border-bottom: 0;
+  position: relative;
+}
+
+.flow-choice_list-link {
+  line-height: 19px;
+  text-decoration: none;
+  letter-spacing: 1.14px;
+  color: #21303d;
+  display: block;
+  padding: 20px 60px 21px 20px;
+  background: none;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .3s;
+  outline: none;
+}
+
+.flow-choice_list .flow-choice_list-item:last-child {
+  border-bottom: 1px solid #dae1e3;
+}
+
+.flow-choice_list-item--is_active .flow-choice_list-link,
+.flow-choice_list-link:hover {
+  color: #21303d;
+  background-color: #e5f7fc;
+}
+
+.flow_header-main,
+.flow_header-main-center,
+.flow_header-main-left,
+.flow_header-main-right {
+  display: flex;
+  align-items: stretch;
+}
+
+.flow_header-main {
+  background: #fff;
+  height: 86px;
+  justify-content: space-between;
+}
+
+.flow_header-main-left,
+.flow_header-main-right {
+  width: 85px;
+  flex-shrink: 0;
+}
+
+.flow_header-main,
+.flow_header-main-center,
+.flow_header-main-left,
+.flow_header-main-right {
+  display: flex;
+  align-items: stretch;
+}
+
+.flow_header-nav {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.flow_header-nav-button {
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  font-size: 17px;
+  color: #8c939a;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.flow_header-main-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.flow_header-title {
+  color: rgba(33, 48, 61, .5);
+  font-size: 15px;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.flow_header-progress {
+  height: 4px;
+  background: #e9e9e9;
+}
+
+.flow_header-progress-inner {
+  background: #ff412d;
+  height: 4px;
+  transition: width .4s;
+}
+
+.download_btn a {
+  display: inline-block;
+  padding: 10px;
+}
+
+.btn {
+  padding: 18px 84px 20px;
+  border-radius: 10px;
+  &.btn-red {
+    background-color: rgb(246, 94, 27);
+  }
+  &.disable {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}

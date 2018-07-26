@@ -322,7 +322,6 @@ span.bread-crumbs-online ol li {
     margin-top: -6px;
     text-align: center;
   }
-
 }
 
 .born-on {
@@ -463,4 +462,13 @@ span.bread-crumbs-online ol li {
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.postal-code {
+  text-align: center;
+  margin-bottom: 20px;
+  input {
+    margin: 0 auto;
+    width: 300px;
+  }
 }

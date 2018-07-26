@@ -1,0 +1,159 @@
+<header class="flow_header">
+  <div class="flow_header-main">
+    <div class="flow_header-main-left">
+      <div class="flow_header-nav">
+        <button class="flow_header-nav-button" (click)="previousSlide()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+    <div class="flow_header-main-center">
+      <div class="flow_header-title">
+        <span>Question {{slide}} of 7</span>
+      </div>
+    </div>
+    <div class="flow_header-main-right">
+      <button class="flow_header-info_button">
+        <i class="icon-roman"></i>
+      </button>
+    </div>
+  </div>
+  <div class="flow_header-progress">
+    <div class="flow_header-progress-inner" style="width: 11%;"></div>
+  </div>
+</header>
+<form class="flow-question" [hidden]="!(slide == 1)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Did you ever consumed pills?</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = true; nextSlide()">Yes</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = false; nextSlide()">No</button>
+    </div>
+  </div>
+</form>
+
+<form class="flow-question" [hidden]="!(slide == 2)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Do you have preference which to use?</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option1</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option2</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option3</button>
+    </div>
+  </div>
+</form>
+
+<form class="flow-question" [hidden]="!(slide == 3)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Take advantage of generic option?</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option1</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option2</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option3</button>
+    </div>
+  </div>
+</form>
+
+<form class="flow-question" [hidden]="!(slide == 4)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">How often you want to renew your subscription?</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option1</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option2</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option3</button>
+    </div>
+  </div>
+</form>
+
+<form class="flow-question" [hidden]="!(slide == 5)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Did you experience any serious side effects
+        <strong>that made you stop</strong>?</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">No, never had any side effects</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">No, side effects did not make me stop</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Yes</button>
+    </div>
+  </div>
+</form>
+
+<form class="flow-question" [hidden]="!(slide == 6)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Have you had a physical exam with a healthcare provider in the past five years? If so, did the provider also examine
+        the genitals? If not, we recommend visiting a healthcare provider before using our services.</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Yes, it was normal</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Yes, but there were issues.</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">No</button>
+    </div>
+  </div>
+</form>
+
+<form class="flow-question" [hidden]="!(slide == 7)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Thank you. You should receive email with your registration details now. Please use the following links depending on
+        your platform to download the Service App.</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="download_btn">
+      <a href="#">
+        <img src="assets/images/apple.png" alt="">
+      </a>
+      <a href="#">
+        <img src="assets/images/android.png" alt="">
+      </a>
+    </div>
+  </div>
+  <div >
+    <button class="btn btn-red" (click)="next()">next </button>
+  </div>
+
+</form>
