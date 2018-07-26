@@ -24,21 +24,22 @@ export class YourChoiseComponent implements OnInit {
     model;
     slide = 1;
     percent = 0;
+    fullStep = 10;
     constructor(public router: Router) { }
 
     ngOnInit() {
-        this.percent = this.slide * 100 / 7;
+        this.percent = this.slide * 100 / this.fullStep;
     }
 
     nextSlide() {
         this.slide++;
-        this.percent = this.slide * 100 / 7;
+        this.percent = this.slide * 100 / this.fullStep;
     }
 
     previousSlide() {
         if (this.slide > 0) {
             this.slide--;
-            this.percent = this.slide * 100 / 7;
+            this.percent = this.slide * 100 / this.fullStep;
         }
     }
 
@@ -71,7 +72,7 @@ export class YourChoiseComponent implements OnInit {
             let check = postcode.validate(that.postcode, 'JP');
             if (check) {
                 that.okPostCode = true;
-                that.scrollBottom();
+                that.nextSlide();
             } else {
                 that.errorPostCode = 'Sorry, we don’t have service in your area. Thank you for your attention';
             }

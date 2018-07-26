@@ -9,7 +9,7 @@
     </div>
     <div class="flow_header-main-center">
       <div class="flow_header-title">
-        <span>Question {{slide}} of 7</span>
+        <span>Question {{slide}} of {{fullStep}}</span>
       </div>
     </div>
     <div class="flow_header-main-right">
@@ -84,22 +84,6 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 4)">
-  <div>
-    <div class="flow-question-header">
-      <div class="flow-question-header-title">Did you ever consumed pills?</div>
-    </div>
-  </div>
-  <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = true; nextSlide()">Yes</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = false; nextSlide()">No</button>
-    </div>
-  </div>
-</form>
-
 <div class="quote" [hidden]="!(slide == 3)">
   <div class="row">
     <div class="col-lg-8 margin-auto text-center">
@@ -120,6 +104,22 @@
     </div>
   </div>
 </div>
+
+<form class="flow-question" [hidden]="!(slide == 4)">
+  <div>
+    <div class="flow-question-header">
+      <div class="flow-question-header-title">Did you ever consumed pills?</div>
+    </div>
+  </div>
+  <div class="flow-choice_list">
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = true; nextSlide()">Yes</button>
+    </div>
+    <div class="flow-choice_list-item">
+      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = false; nextSlide()">No</button>
+    </div>
+  </div>
+</form>
 
 <form class="flow-question" [hidden]="!(slide == 5)">
   <div>
