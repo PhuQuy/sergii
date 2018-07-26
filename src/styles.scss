@@ -278,6 +278,44 @@ a.btn-round svg {
   margin: 0 auto;
 }
 
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.border-avatar {
+  border: 1px solid;
+  border-color: #d43f65;
+}
+
+ngb-datepicker .ngb-dp-header ngb-datepicker-navigation .ngb-dp-arrow-btn .ngb-dp-navigation-chevron {
+  width: 0px !important;
+  height: 0px !important;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #f96332;
+  border-top: none;
+}
+
+.ngb-dp-navigation-chevron {
+  transform: rotate(-90deg) !important;
+}
+
+ngb-datepicker .ngb-dp-header ngb-datepicker-navigation .ngb-dp-arrow-btn .ngb-dp-navigation-chevron:before {
+  display: none;
+}
+
+.ngb-dp-arrow.right .ngb-dp-navigation-chevron {
+  transform: rotate(90deg) !important;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: transparent !important;
+  color: #888;
+  cursor: pointer !important;
+}
+
 .assistant {
   padding: 60px 0 30px;
 }

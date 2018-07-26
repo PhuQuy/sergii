@@ -9,7 +9,7 @@ import { YourChoiseComponent } from './routes/your-choise/your-choise.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'your-quote', component: YourQuoteComponent },
+  { path: 'your-quote', component: YourChoiseComponent },
   { path: 'your-answer', component: YourChoiseComponent }
 
 ];

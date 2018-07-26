@@ -13,15 +13,52 @@
       </div>
     </div>
     <div class="flow_header-main-right">
-      <button class="flow_header-info_button">
-        <i class="icon-roman"></i>
-      </button>
+      <img src="/assets/images/transparent_femito-01.png" alt="" class="chat-assistant-avatar-img">
     </div>
   </div>
   <div class="flow_header-progress">
     <div class="flow_header-progress-inner" style="width: 11%;"></div>
   </div>
 </header>
+<div class="quote" [hidden]="!(slide == 0)">
+  <div class="row">
+    <div class="col-lg-8 margin-auto text-center">
+      <span>I’m a</span>
+      <div ngbDropdown class="d-inline-block">
+        <div ngbDropdownToggle [style.color]="sex == 'gender' ? '#ccc' : '#f65e1b'">
+          <span>{{sex}}</span>
+        </div>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button class="dropdown-item" (click)="sex = 'Female'">Female</button>
+          <button class="dropdown-item" (click)="sex = 'Male'">Male</button>
+        </div>
+      </div>
+      <div class="born-on">
+        <span>born on</span>
+        <div class="group-form-input invalid">
+          <!-- <input class="datetime" placeholder="dd-mm-yyyy" /> -->
+          <form class="form-inline">
+            <div class="form-group">
+              <div class="input-group cursor-pointer text-center" style="margin-top: -19px; width: 80%">
+                <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                <!-- <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <i class="fas fa-calendar-alt"></i>
+                  </button>
+                </div> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center margin-top-20">
+        <button class="btn btn-red" [disabled]="sex == 'gender'" (click)="nextSlide()">next </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <form class="flow-question" [hidden]="!(slide == 1)">
   <div>
     <div class="flow-question-header">
@@ -152,7 +189,7 @@
       </a>
     </div>
   </div>
-  <div >
+  <div>
     <button class="btn btn-red" (click)="next()">next </button>
   </div>
 
