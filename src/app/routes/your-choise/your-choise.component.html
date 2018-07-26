@@ -70,7 +70,7 @@
         <b>What is your postal code?</b>
       </h4>
       <div class="postal-code" [hidden]="errorPostCode">
-        <input type="tel" placeholder="Postal code" class="form-control no-spin " [(ngModel)]="postcode" name="postcode">
+        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)" (keypress)="numberOnly($event)" [ngModel]="postcode" name="postcode">
       </div>
       <div class="row" [hidden]="!errorPostCode">
         <div class="col-lg-10 margin-auto">

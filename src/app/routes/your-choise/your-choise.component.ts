@@ -43,6 +43,17 @@ export class YourChoiseComponent implements OnInit {
         }
     }
 
+    valueChange(e) {
+        let chIbn = e.split('-').join('');
+        if (chIbn.length > 0) {
+            if (!e.match(new RegExp('.{1,3}-', 'g')))
+                chIbn = chIbn.match(new RegExp('.{1,3}', 'g')).join('-');
+            else
+                chIbn = e;
+        }
+        this.postcode = chIbn;
+    }
+
     next() {
         this.router.navigateByUrl('/');
     }
@@ -60,6 +71,14 @@ export class YourChoiseComponent implements OnInit {
         this.okSex = true;
 
         this.nextSlide();
+    }
+
+    numberOnly(event): boolean {
+        const charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
     }
 
     checkPostCode() {
