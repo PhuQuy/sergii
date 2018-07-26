@@ -1,0 +1,238 @@
+// .flow-hint_sidebar--animation_in {
+//     animation: .6s hintSidebarIn forwards;
+// }
+
+.flow-hint_sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.flow-hint_sidebar-header {
+  position: relative;
+  padding-left: 100px;
+  padding-right: 75px;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.flow-hint_sidebar {
+  width: 430px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+  outline: none;
+  right: -430px;
+  z-index: 202;
+}
+
+.flow-hint_sidebar-logo {
+  width: 84px;
+  height: 100px;
+  display: block;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.flow-hint_sidebar-close_button {
+  position: absolute;
+  font-size: 28px;
+  color: #afb4b9;
+  padding: 10px;
+  border: 0;
+  margin: 0;
+  display: block;
+  top: 17px;
+  right: 21px;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.flow-hint_sidebar-title {
+  text-transform: uppercase;
+  letter-spacing: .75px;
+  color: rgba(33, 48, 61, .5);
+  font-size: 15px;
+  line-height: 18px;
+  padding-top: 36px;
+}
+
+.flow-hint_sidebar-main {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 40px 55px;
+}
+
+.flow-hint_sidebar-main-header {
+  text-align: center;
+  color: #21303d;
+  font-size: 18px;
+  letter-spacing: .8;
+  line-height: 22px;
+  margin-bottom: 30px;
+}
+
+.flow-hint_sidebar-chat {
+  margin-bottom: 4px;
+}
+
+.flow-hint_sidebar-chat .static_chat-msg {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 26px;
+}
+
+.chat-msg-user,
+.static_chat-msg-user {
+  margin-right: 6px;
+  overflow: hidden;
+  align-self: flex-end;
+  order: 1;
+  flex-shrink: 0;
+}
+
+.chat-msg-avatar,
+.static_chat-msg-avatar {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-msg-avatar-thumb,
+.static_chat-msg-avatar-thumb {
+  width: 28px;
+  height: 28px;
+  background: 50% no-repeat;
+  background-size: cover;
+}
+
+img {
+  margin: 0 0 10px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.chat-msg-main,
+.static_chat-msg-main {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.chat-msg-bubble-outer_wrap,
+.static_chat-msg-bubble-outer_wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.flow-hint_sidebar-chat .static_chat-msg-bubble-wrap {
+  max-width: 100%;
+}
+
+.chat-msg-bubble,
+.static_chat-msg-bubble {
+  outline: none;
+}
+
+.fake_chat .chat-msg-main .chat-msg-bubble-inner,
+.fake_chat .chat-msg-main .static_chat-msg-bubble-inner,
+.fake_chat .static_chat-msg-main .chat-msg-bubble-inner,
+.fake_chat .static_chat-msg-main .static_chat-msg-bubble-inner,
+.flow-hint_sidebar-chat .chat-msg-main .chat-msg-bubble-inner,
+.flow-hint_sidebar-chat .chat-msg-main .static_chat-msg-bubble-inner,
+.flow-hint_sidebar-chat .static_chat-msg-main .chat-msg-bubble-inner,
+.flow-hint_sidebar-chat .static_chat-msg-main .static_chat-msg-bubble-inner {
+  padding-top: 24px;
+}
+
+.fake_chat .chat-msg-bubble-bg,
+.fake_chat .static_chat-msg-bubble-bg,
+.flow-hint_sidebar-chat .chat-msg-bubble-bg,
+.flow-hint_sidebar-chat .static_chat-msg-bubble-bg {
+  top: 4px;
+}
+
+.chat-msg-bubble-bg,
+.static_chat-msg-bubble-bg {
+  background: #caf0f8;
+  border-radius: 15px;
+  border-bottom-left-radius: 0;
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.chat-msg-text, .static_chat-msg-text {
+    font-size: 14px;
+    color: #21303d;
+    line-height: 22px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+}
+
+.flow-hint_sidebar-button {
+    margin-bottom: 20px;
+}
+
+.button--block {
+    width: 100%;
+}
+
+.button--secondary {
+    background: #ff412d;
+    color: #fff;
+    transition: background-color .3s;
+    border: 1px solid #ff412d;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.button {
+    padding: calc((60px - 1.2em - 2px)/2) 20px;
+    overflow: visible;
+}
+
+.flow-hint_sidebar-text {
+    margin-top: 27px;
+}
+
+.flow-hint_sidebar-text-header, .flow-hint_sidebar-text p {
+    letter-spacing: .7px;
+    line-height: 17px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+p {
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+
+b, strong {
+    font-weight: 600;
+}
