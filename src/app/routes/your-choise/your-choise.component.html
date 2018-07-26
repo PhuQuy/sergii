@@ -23,47 +23,47 @@
     <!-- <div class="flow_header-progress-inner" style="width: 11%;"></div> -->
   </div>
 </header>
-<div class="quote" [hidden]="!(slide == 0)">
+<div class="quote" [hidden]="!(slide == 1)">
   <div class="row">
-    <div class="col-lg-8 margin-auto text-center" >
-        <div [hidden]="errorSex">
-            <span>I’m a</span>
-            <div ngbDropdown class="d-inline-block">
-              <div ngbDropdownToggle [style.color]="sex == 'gender' ? '#ccc' : '#f65e1b'">
-                <span>{{sex}}</span>
-              </div>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button class="dropdown-item" (click)="sex = 'Female'">Female</button>
-                <button class="dropdown-item" (click)="sex = 'Male'">Male</button>
-              </div>
-            </div>
-            <div class="born-on">
-              <span>born on</span>
-              <div class="group-form-input invalid">
-                <form class="form-inline">
-                  <div class="form-group">
-                    <div class="input-group cursor-pointer text-center" style="margin-top: -12px; width: 80%">
-                      <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="model" ngbDatepicker
-                        #d="ngbDatepicker">
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+    <div class="col-lg-8 margin-auto text-center">
+      <div [hidden]="errorSex">
+        <span>I’m a</span>
+        <div ngbDropdown class="d-inline-block">
+          <div ngbDropdownToggle [style.color]="sex == 'gender' ? '#ccc' : '#f65e1b'">
+            <span>{{sex}}</span>
+          </div>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" (click)="sex = 'Female'">Female</button>
+            <button class="dropdown-item" (click)="sex = 'Male'">Male</button>
+          </div>
         </div>
+        <div class="born-on">
+          <span>born on</span>
+          <div class="group-form-input invalid">
+            <form class="form-inline">
+              <div class="form-group">
+                <div class="input-group cursor-pointer text-center" style="margin-top: -12px; width: 80%">
+                  <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="model" ngbDatepicker
+                    #d="ngbDatepicker">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       <div class="row" [hidden]="!errorSex">
         <div class="col-lg-10 margin-auto">
           <p class="text-center">{{errorSex}}</p>
         </div>
       </div>
       <div class="text-center margin-top-20">
-        <button class="btn btn-red" [disabled]="sex == 'gender'" (click)="nextT()">next </button>
+        <button class="btn btn-red" [disabled]="sex == 'gender' || model == null" (click)="nextT()">next </button>
       </div>
     </div>
   </div>
 </div>
 
-<form class="flow-question" [hidden]="!(slide == 1)">
+<form class="flow-question" [hidden]="!(slide == 4)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Did you ever consumed pills?</div>
@@ -79,7 +79,28 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 2)">
+<div class="quote" [hidden]="!(slide == 3)">
+  <div class="row">
+    <div class="col-lg-8 margin-auto text-center">
+      <div [hidden]="errorSex">
+        <div class="flow-question-header-title">What is your email?</div>
+        <div class="postal-code" [hidden]="errorEmail">
+          <input type="tel" placeholder="Email" class="form-control no-spin " [(ngModel)]="email">
+        </div>
+      </div>
+      <div class="row" [hidden]="!errorEmail">
+        <div class="col-lg-10 margin-auto">
+          <p class="text-center">{{errorEmail}}</p>
+        </div>
+      </div>
+      <div class="text-center margin-top-20">
+        <button class="btn btn-red" [disabled]="!validateEmail(email)" (click)="checkEmail()">next </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form class="flow-question" [hidden]="!(slide == 5)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Do you have preference which to use?</div>
@@ -98,7 +119,7 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 3)">
+<form class="flow-question" [hidden]="!(slide == 6)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Take advantage of generic option?</div>
@@ -117,7 +138,7 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 4)">
+<form class="flow-question" [hidden]="!(slide == 7)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">How often you want to renew your subscription?</div>
@@ -136,7 +157,7 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 5)">
+<form class="flow-question" [hidden]="!(slide == 8)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Did you experience any serious side effects
@@ -156,7 +177,7 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 6)">
+<form class="flow-question" [hidden]="!(slide == 9)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Have you had a physical exam with a healthcare provider in the past five years? If so, did the provider also examine
@@ -176,7 +197,7 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 7)">
+<form class="flow-question" [hidden]="!(slide == 10)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Thank you. You should receive email with your registration details now. Please use the following links depending on

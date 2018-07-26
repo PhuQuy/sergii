@@ -21,8 +21,8 @@ export class YourChoiseComponent implements OnInit {
     okSex: boolean = false;
     okEmail: boolean = false;
     errorEmail;
-
-    slide = 0;
+    model;
+    slide = 1;
     percent = 0;
     constructor(public router: Router) { }
 
@@ -80,7 +80,7 @@ export class YourChoiseComponent implements OnInit {
 
     checkEmail() {
         if (this.validateEmail(this.email)) {
-            this.router.navigateByUrl('/your-answer');
+            this.nextSlide();
         }
     }
 
