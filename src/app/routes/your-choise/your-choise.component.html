@@ -63,6 +63,27 @@
   </div>
 </div>
 
+<form class="flow-question" [hidden]="!(slide == 2)">
+  <div class="row text-center">
+    <div class="promocode-container col-lg-10 margin-auto">
+      <h4 style="margin-top: 30px; margin-bottom: 30px;">
+        <b>What is your postal code?</b>
+      </h4>
+      <div class="postal-code" [hidden]="errorPostCode">
+        <input type="tel" placeholder="Postal code" class="form-control no-spin " [(ngModel)]="postcode" name="postcode">
+      </div>
+      <div class="row" [hidden]="!errorPostCode">
+        <div class="col-lg-10 margin-auto">
+          <p class="text-center">{{errorPostCode}}</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-red" [disabled]="postcode == ''" (click)="checkPostCode()">next </button>
+      </div>
+    </div>
+  </div>
+</form>
+
 <form class="flow-question" [hidden]="!(slide == 4)">
   <div>
     <div class="flow-question-header">
