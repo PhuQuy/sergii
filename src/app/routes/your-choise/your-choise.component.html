@@ -14,12 +14,13 @@
     </div>
     <div class="flow_header-main-right">
       <button class="flow_header-info_button">
-        <i class="icon-roman"></i>
+          <i class="icon-roman"></i>
       </button>
     </div>
   </div>
   <div class="flow_header-progress">
-    <div class="flow_header-progress-inner" style="width: 11%;"></div>
+    <p><ngb-progressbar type="primary" [value]="percent" height="5px"></ngb-progressbar></p>
+    <!-- <div class="flow_header-progress-inner" style="width: 11%;"></div> -->
   </div>
 </header>
 <form class="flow-question" [hidden]="!(slide == 1)">
