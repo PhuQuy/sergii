@@ -63,15 +63,14 @@
   </div>
 </div>
 
-<form class="flow-question" [hidden]="!(slide == 1) && !okSex">
+<form class="flow-question" [hidden]="!(slide == 1)">
   <div class="row text-center">
-    <img class="img-responsive d-seperator" src="/assets/images/divider-white.png">
     <div class="promocode-container col-lg-10 margin-auto">
       <h4 style="margin-top: 30px; margin-bottom: 30px;">
         <b>What is your postal code?</b>
       </h4>
       <div class="postal-code" [hidden]="errorPostCode">
-        <input type="tel" placeholder="Postal code" class="form-control no-spin " [(ngModel)]="postcode">
+        <input type="tel" placeholder="Postal code" class="form-control no-spin " [(ngModel)]="postcode" name="postcode">
       </div>
       <div class="row" [hidden]="!errorPostCode">
         <div class="col-lg-10 margin-auto">
