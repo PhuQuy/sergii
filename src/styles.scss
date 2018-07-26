@@ -4209,3 +4209,8 @@ input:checked+.page_delay-option-label:before {
 input:checked+.page_delay-option-label:after {
   display: block
 }
+
+.form-group .form-control,
+.input-group .form-control {
+  padding-bottom: 3px !important;
+}

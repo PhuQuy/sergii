@@ -33,15 +33,12 @@ export class YourChoiseComponent implements OnInit {
     nextSlide() {
         this.slide++;
         this.percent = this.slide * 100 / 7;
-
-
     }
 
     previousSlide() {
         if (this.slide > 0) {
             this.slide--;
             this.percent = this.slide * 100 / 7;
-
         }
     }
 
@@ -60,8 +57,8 @@ export class YourChoiseComponent implements OnInit {
         }
 
         this.okSex = true;
-        this.scrollBottom();
 
+        this.nextSlide();
     }
 
     checkPostCode() {
