@@ -23,9 +23,9 @@
     <!-- <div class="flow_header-progress-inner" style="width: 11%;"></div> -->
   </div>
 </header>
-<div class="quote" [hidden]="!(slide == 1)">
-  <div class="row">
-    <div class="col-lg-8 margin-auto text-center">
+<form class="flow-question" [hidden]="!(slide == 1)">
+  <div class="row text-center">
+    <div class="promocode-container col-lg-10 margin-auto">
       <h4 style="margin-top: 30px; margin-bottom: 30px;">
         <b>Tell us about yourself</b>
       </h4>
@@ -60,11 +60,11 @@
         </div>
       </div>
       <div class="text-center margin-top-20">
-        <button class="btn btn-red" [disabled]="sex == 'gender' || model == null" (click)="nextT()">next </button>
+        <button class="btn btn-red" [disabled]="sex == 'gender' || model == null" (click)="nextT()">Next</button>
       </div>
     </div>
   </div>
-</div>
+</form>
 
 <form class="flow-question" [hidden]="!(slide == 2)">
   <div class="row text-center">
@@ -73,8 +73,7 @@
         <b>What is your postal code?</b>
       </h4>
       <div class="postal-code" [hidden]="errorPostCode">
-        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)"
-          (keypress)="numberOnly($event)" [ngModel]="postcode" name="postcode">
+        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)" (keypress)="numberOnly($event)" [ngModel]="postcode" name="postcode">
       </div>
       <div class="row" [hidden]="!errorPostCode">
         <div class="col-lg-10 margin-auto">
@@ -82,19 +81,21 @@
         </div>
       </div>
       <div class="text-center">
-        <button class="btn btn-red" [disabled]="postcode == ''" (click)="checkPostCode()">next </button>
+        <button class="btn btn-red" [disabled]="postcode == ''" (click)="checkPostCode()">Next</button>
       </div>
     </div>
   </div>
 </form>
 
-<div class="quote" [hidden]="!(slide == 3)">
-  <div class="row">
-    <div class="col-lg-8 margin-auto text-center">
+<form class="flow-question" [hidden]="!(slide == 3)">
+  <div class="row text-center">
+    <div class="promocode-container col-lg-10 margin-auto ">
       <div [hidden]="errorSex">
-        <div class="flow-question-header-title">What is your email?</div>
+        <h4 style="margin-top: 30px; margin-bottom: 30px;">
+          <b>What is your email?</b>
+        </h4>
         <div class="postal-code" [hidden]="errorEmail">
-          <input type="tel" placeholder="Email" class="form-control no-spin " [(ngModel)]="email">
+          <input type="tel" placeholder="Email" class="form-control no-spin " [(ngModel)]="email" name="email">
         </div>
       </div>
       <div class="row" [hidden]="!errorEmail">
@@ -103,11 +104,11 @@
         </div>
       </div>
       <div class="text-center margin-top-20">
-        <button class="btn btn-red" [disabled]="!validateEmail(email)" (click)="checkEmail()">next </button>
+        <button class="btn btn-red" [disabled]="!validateEmail(email)" (click)="checkEmail()">Next</button>
       </div>
     </div>
   </div>
-</div>
+</form>
 
 <form class="flow-question" [hidden]="!(slide == 4)">
   <div>
@@ -240,7 +241,7 @@
     </div>
   </div>
   <div>
-    <button class="btn btn-red" (click)="next()">next </button>
+    <button class="btn btn-red" (click)="next()">Next</button>
   </div>
 
 </form>
