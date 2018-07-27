@@ -37,7 +37,7 @@ export class YourChoiseComponent implements OnInit {
     }
 
     previousSlide() {
-        if (this.slide > 0) {
+        if (this.slide > 1) {
             this.slide--;
             this.percent = this.slide * 100 / this.fullStep;
         }
