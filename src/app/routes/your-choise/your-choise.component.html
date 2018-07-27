@@ -26,6 +26,9 @@
 <div class="quote" [hidden]="!(slide == 1)">
   <div class="row">
     <div class="col-lg-8 margin-auto text-center">
+      <h4 style="margin-top: 30px; margin-bottom: 30px;">
+        <b>Tell us about yourself</b>
+      </h4>
       <div [hidden]="errorSex">
         <span>I’m a</span>
         <div ngbDropdown class="d-inline-block">
@@ -70,7 +73,8 @@
         <b>What is your postal code?</b>
       </h4>
       <div class="postal-code" [hidden]="errorPostCode">
-        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)" (keypress)="numberOnly($event)" [ngModel]="postcode" name="postcode">
+        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)"
+          (keypress)="numberOnly($event)" [ngModel]="postcode" name="postcode">
       </div>
       <div class="row" [hidden]="!errorPostCode">
         <div class="col-lg-10 margin-auto">
