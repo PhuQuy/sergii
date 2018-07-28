@@ -32,12 +32,12 @@
       <div [hidden]="errorSex">
         <span>I’m a</span>
         <div ngbDropdown class="d-inline-block">
-          <div ngbDropdownToggle [style.color]="sex == 'gender' ? '#ccc' : '#f65e1b'">
-            <span>{{sex}}</span>
+          <div ngbDropdownToggle [style.color]="!survey.gender ? '#ccc' : '#f65e1b'">
+            <span>{{survey.gender ? survey.gender : 'gender'}}</span>
           </div>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button class="dropdown-item" (click)="sex = 'Female'">Female</button>
-            <button class="dropdown-item" (click)="sex = 'Male'">Male</button>
+            <button class="dropdown-item" (click)="survey.gender = 'Female'">Female</button>
+            <button class="dropdown-item" (click)="survey.gender = 'Male'">Male</button>
           </div>
         </div>
         <div class="born-on">
@@ -46,7 +46,7 @@
             <form class="form-inline">
               <div class="form-group">
                 <div class="input-group cursor-pointer text-center" style="margin-top: -12px; width: 80%">
-                  <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="model" ngbDatepicker
+                  <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="survey.birthDay" ngbDatepicker
                     #d="ngbDatepicker">
                 </div>
               </div>
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="text-center margin-top-20">
-        <button class="btn btn-red" [disabled]="sex == 'gender' || model == null" (click)="nextT()">Next</button>
+        <button class="btn btn-red" [disabled]="!survey.gender || survey.birthDay == null" (click)="nextT()">Next</button>
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@
         <b>What is your postal code?</b>
       </h4>
       <div class="postal-code" [hidden]="errorPostCode">
-        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)" (keypress)="numberOnly($event)" [ngModel]="postcode" name="postcode">
+        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)" (keypress)="numberOnly($event)" [ngModel]="survey.postCode" name="postcode">
       </div>
       <div class="row" [hidden]="!errorPostCode">
         <div class="col-lg-10 margin-auto">
@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="text-center">
-        <button class="btn btn-red" [disabled]="postcode == ''" (click)="checkPostCode()">Next</button>
+        <button class="btn btn-red" [disabled]="survey.postCode == ''" (click)="checkPostCode()">Next</button>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@
           <b>What is your email?</b>
         </h4>
         <div class="postal-code" [hidden]="errorEmail">
-          <input type="tel" placeholder="Email" class="form-control no-spin " [(ngModel)]="email" name="email">
+          <input type="tel" placeholder="Email" class="form-control no-spin " [(ngModel)]="survey.email" name="email">
         </div>
       </div>
       <div class="row" [hidden]="!errorEmail">
@@ -104,7 +104,7 @@
         </div>
       </div>
       <div class="text-center margin-top-20">
-        <button class="btn btn-red" [disabled]="!validateEmail(email)" (click)="checkEmail()">Next</button>
+        <button class="btn btn-red" [disabled]="!validateEmail(survey.email)" (click)="checkEmail()">Next</button>
       </div>
     </div>
   </div>
@@ -118,10 +118,10 @@
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = true; nextSlide()">Yes</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.consumedPill = 'true'; nextSlide()">Yes</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="user.consumedPill = false; nextSlide()">No</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.consumedPill = 'false'; nextSlide()">No</button>
     </div>
   </div>
 </form>
@@ -134,13 +134,13 @@
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option1</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.preferenceConsumedPill = 'Option1'; nextSlide()">Option1</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option2</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.preferenceConsumedPill = 'Option1';nextSlide()">Option2</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option3</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.preferenceConsumedPill = 'Option1';nextSlide()">Option3</button>
     </div>
   </div>
 </form>
@@ -153,13 +153,13 @@
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option1</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.advantageGeneric = 'Option1';nextSlide()">Option1</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option2</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.advantageGeneric = 'Option1';nextSlide()">Option2</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option3</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.advantageGeneric = 'Option1';nextSlide()">Option3</button>
     </div>
   </div>
 </form>
@@ -172,13 +172,13 @@
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option1</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.renewSubscriptionTime = 'Option1';nextSlide()">Option1</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option2</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.renewSubscriptionTime = 'Option1';nextSlide()">Option2</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Option3</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.renewSubscriptionTime = 'Option1';nextSlide()">Option3</button>
     </div>
   </div>
 </form>
@@ -192,13 +192,13 @@
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">No, never had any side effects</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.sideEffect = 'Option1';nextSlide()">No, never had any side effects</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">No, side effects did not make me stop</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.sideEffect = 'Option1';nextSlide()">No, side effects did not make me stop</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Yes</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.sideEffect = 'Option1';nextSlide()">Yes</button>
     </div>
   </div>
 </form>
@@ -212,13 +212,13 @@
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Yes, it was normal</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, it was normal</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">Yes, but there were issues.</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, but there were issues.</button>
     </div>
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="nextSlide()">No</button>
+      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">No</button>
     </div>
   </div>
 </form>

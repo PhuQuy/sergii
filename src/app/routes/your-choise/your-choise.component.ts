@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as postcode from 'postcode-validator'
+import { ServeyService } from '../../services/servey.service';
 
 @Component({
     selector: 'app-your-choise',
     templateUrl: './your-choise.component.html',
-    styleUrls: ['./your-choise.component.scss']
+    styleUrls: ['./your-choise.component.scss'],
+    providers: [ServeyService]
 })
 export class YourChoiseComponent implements OnInit {
     user = {
@@ -14,7 +16,6 @@ export class YourChoiseComponent implements OnInit {
     confirm: boolean = false;
     sex: string = 'gender';
     errorSex;
-    postcode = '';
     errorPostCode;
     okPostCode: boolean = false;
     email: string = '';
@@ -25,7 +26,22 @@ export class YourChoiseComponent implements OnInit {
     slide = 1;
     percent = 0;
     fullStep = 10;
-    constructor(public router: Router) { }
+
+    survey = {
+        name: '',
+        gender: null,
+        birthDay: null,
+        postCode: '',
+        email: '',
+        consumedPill: '',
+        preferenceConsumedPill: '',
+        advantageGeneric: '',
+        renewSubscriptionTime: '',
+        sideEffect: '',
+        physicalExam: ''
+    }
+
+    constructor(public router: Router, public serveyService:ServeyService) { }
 
     ngOnInit() {
         this.percent = this.slide * 100 / this.fullStep;
@@ -51,10 +67,12 @@ export class YourChoiseComponent implements OnInit {
             else
                 chIbn = e;
         }
-        this.postcode = chIbn;
+        this.survey.postCode = chIbn;
     }
 
     next() {
+        this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`
+        this.serveyService.createSurvey(this.survey);
         this.router.navigateByUrl('/');
     }
 
@@ -87,8 +105,8 @@ export class YourChoiseComponent implements OnInit {
             this.router.navigateByUrl('/');
             return;
         }
-        if (this.postcode) {
-            let check = postcode.validate(that.postcode, 'JP');
+        if (this.survey.postCode) {
+            let check = postcode.validate(that.survey.postCode, 'JP');
             if (check) {
                 that.okPostCode = true;
                 that.nextSlide();
@@ -99,7 +117,7 @@ export class YourChoiseComponent implements OnInit {
     }
 
     checkEmail() {
-        if (this.validateEmail(this.email)) {
+        if (this.validateEmail(this.survey.email)) {
             this.nextSlide();
         }
     }

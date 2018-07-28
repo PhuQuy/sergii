@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -27,6 +28,7 @@ import { YourChoiseComponent } from './routes/your-choise/your-choise.component'
     RouterModule,
     FormsModule,
     NgbModule.forRoot(),
+    HttpModule,
     AppRoutingModule
   ],
   providers: [],
