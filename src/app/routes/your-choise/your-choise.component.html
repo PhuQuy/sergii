@@ -30,7 +30,7 @@
         <b>Tell us about yourself</b>
       </h4>
       <div [hidden]="errorSex">
-        <span>I’m a</span>
+        <span class="font-weight-bold">I’m a</span>
         <div ngbDropdown class="d-inline-block">
           <div ngbDropdownToggle [style.color]="!survey.gender ? '#ccc' : '#f65e1b'">
             <span>{{survey.gender ? survey.gender : 'gender'}}</span>
@@ -40,7 +40,7 @@
             <button class="dropdown-item" (click)="survey.gender = 'Male'">Male</button>
           </div>
         </div>
-        <div class="born-on">
+        <div class="born-on font-weight-bold">
           <span>born on</span>
           <div class="group-form-input invalid">
             <form class="form-inline">
@@ -114,7 +114,7 @@
   </div>
 </form>
 
-<form class="flow-question"  *ngFor="let question of questions; let i = index" [hidden]="!(slide == (i + 4))">
+<form class="flow-question font-weight-bold"  *ngFor="let question of questions; let i = index" [hidden]="!(slide == (i + 4))">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title" [innerHtml]="question.title"></div>
@@ -129,7 +129,7 @@
 
 <form class="flow-question" [hidden]="!(slide == fullStep)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Thank you. You should receive email with your registration details now. Please use the following links depending on
         your platform to download the Service App.</div>
     </div>
@@ -143,9 +143,9 @@
         <img src="assets/images/android.png" alt="">
       </a>
     </div>
-  </div>
-  <div>
-    <button class="btn btn-red" (click)="next()">Next</button>
+    <div>
+      <button class="btn btn-red" (click)="next()">Next</button>
+    </div>
   </div>
 
 </form>
