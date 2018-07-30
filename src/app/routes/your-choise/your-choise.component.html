@@ -30,7 +30,7 @@
         <b>Tell us about yourself</b>
       </h4>
       <div [hidden]="errorSex">
-        <span>I’m a</span>
+        <span class="font-weight-bold">I’m a</span>
         <div ngbDropdown class="d-inline-block">
           <div ngbDropdownToggle [style.color]="!survey.gender ? '#ccc' : '#f65e1b'">
             <span>{{survey.gender ? survey.gender : 'gender'}}</span>
@@ -40,7 +40,7 @@
             <button class="dropdown-item" (click)="survey.gender = 'Male'">Male</button>
           </div>
         </div>
-        <div class="born-on">
+        <div class="born-on font-weight-bold">
           <span>born on</span>
           <div class="group-form-input invalid">
             <form class="form-inline">
@@ -114,9 +114,9 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 4)">
+<form class="flow-question font-weight-bold" [hidden]="!(slide == 4)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Did you ever consumed pills?</div>
     </div>
   </div>
@@ -130,9 +130,9 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 5)">
+<form class="flow-question font-weight-bold" [hidden]="!(slide == 5)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Do you have preference which to use?</div>
     </div>
   </div>
@@ -149,9 +149,9 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 6)">
+<form class="flow-question font-weight-bold" [hidden]="!(slide == 6)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Take advantage of generic option?</div>
     </div>
   </div>
@@ -168,9 +168,9 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 7)">
+<form class="flow-question font-weight-bold" [hidden]="!(slide == 7)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">How often you want to renew your subscription?</div>
     </div>
   </div>
@@ -187,9 +187,9 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 8)">
+<form class="flow-question font-weight-bold" [hidden]="!(slide == 8)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Did you experience any serious side effects
         <strong>that made you stop</strong>?</div>
     </div>
@@ -207,16 +207,16 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 9)">
+<form class="flow-question font-weight-bold" [hidden]="!(slide == 9)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Have you had a physical exam with a healthcare provider in the past five years? If so, did the provider also examine
         the genitals? If not, we recommend visiting a healthcare provider before using our services.</div>
     </div>
   </div>
   <div class="flow-choice_list">
     <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, it was normal</button>
+      <button class="flow-choice_list-link " type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, it was normal</button>
     </div>
     <div class="flow-choice_list-item">
       <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, but there were issues.</button>
@@ -229,7 +229,7 @@
 
 <form class="flow-question" [hidden]="!(slide == 10)">
   <div>
-    <div class="flow-question-header">
+    <div class="flow-question-header text-center">
       <div class="flow-question-header-title">Thank you. You should receive email with your registration details now. Please use the following links depending on
         your platform to download the Service App.</div>
     </div>
@@ -243,9 +243,9 @@
         <img src="assets/images/android.png" alt="">
       </a>
     </div>
-  </div>
-  <div>
-    <button class="btn btn-red" (click)="next()">Next</button>
+    <div>
+      <button class="btn btn-red" (click)="next()">Next</button>
+    </div>
   </div>
 
 </form>
