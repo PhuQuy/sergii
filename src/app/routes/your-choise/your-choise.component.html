@@ -45,9 +45,12 @@
           <div class="group-form-input invalid">
             <form class="form-inline">
               <div class="form-group">
-                <div class="input-group cursor-pointer text-center" style="margin-top: -12px; width: 80%">
-                  <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="survey.birthDay" ngbDatepicker
-                    #d="ngbDatepicker">
+                <div class="input-group cursor-pointer text-center" style="margin-top: -5px;
+                font-size: 17px;
+                width: 80%;
+            ">
+                  <input class="form-control" placeholder="yyyy-mm-dd" readonly (click)="d.toggle()" name="dp" [(ngModel)]="survey.birthDay"
+                    ngbDatepicker #d="ngbDatepicker">
                 </div>
               </div>
             </form>
@@ -73,7 +76,8 @@
         <b>What is your postal code?</b>
       </h4>
       <div class="postal-code" [hidden]="errorPostCode">
-        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)" (keypress)="numberOnly($event)" [ngModel]="survey.postCode" name="postcode">
+        <input type="text" maxlength="8" placeholder="Postal code" class="form-control no-spin" (ngModelChange)="valueChange($event)"
+          (keypress)="numberOnly($event)" [ngModel]="survey.postCode" name="postcode">
       </div>
       <div class="row" [hidden]="!errorPostCode">
         <div class="col-lg-10 margin-auto">

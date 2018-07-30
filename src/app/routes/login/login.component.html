@@ -1,0 +1,35 @@
+<div class="page_login">
+  <div class="page_login-bg">
+  </div>
+  <div class="page_login-main">
+    <div class="page_login-main-inner">
+      <h2 class="page_login-header">Member login</h2>
+      <form class="fs-hide" novalidate="">
+        <div class="form page_login-form">
+          <div class="form-item">
+            <label for="email" class="form_field">
+              <input class="form_field-control" name="email" id="email" type="email" value="">
+              <span class="form_field-label">Email address</span>
+            </label>
+          </div>
+          <div class="form-item">
+            <label for="password" class="form_field">
+              <input class="form_field-control" name="password" id="password" type="password" value="">
+              <span class="form_field-label">Password</span>
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="button page_login-button button--secondary button--block">Login</button>
+      </form>
+      <ul class="page_login-links">
+        <li class="page_login-links-item">
+          <!-- <a class="page_login-links-link" href="request-password-reset">Forgot Password?</a> -->
+        </li>
+        <li class="page_login-links-item">
+          <a class="page_login-links-link" [routerLink]="['/']">Don’t have an account yet?&nbsp;</a>
+          <a class="page_login-links-link page_login-links-link--highlight"  [routerLink]="['/']">Get Started</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

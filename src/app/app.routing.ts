@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './routes/home/home.component';
-import { YourQuoteComponent } from './routes/your-quote/your-quote.component';
 import { YourChoiseComponent } from './routes/your-choise/your-choise.component';
+import { LoginComponent } from './routes/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'your-quote', component: YourChoiseComponent },
-  { path: 'your-answer', component: YourChoiseComponent }
+  { path: 'login', component: LoginComponent }
 
 ];
 

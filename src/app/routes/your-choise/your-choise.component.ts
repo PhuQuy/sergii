@@ -41,7 +41,7 @@ export class YourChoiseComponent implements OnInit {
         physicalExam: ''
     }
 
-    constructor(public router: Router, public serveyService:ServeyService) { }
+    constructor(public router: Router, public serveyService: ServeyService) { }
 
     ngOnInit() {
         this.percent = this.slide * 100 / this.fullStep;
@@ -50,6 +50,11 @@ export class YourChoiseComponent implements OnInit {
     nextSlide() {
         this.slide++;
         this.percent = this.slide * 100 / this.fullStep;
+
+        if (this.slide == this.fullStep) {
+            this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`
+            this.serveyService.createSurvey(this.survey);
+        }
     }
 
     previousSlide() {
@@ -71,8 +76,6 @@ export class YourChoiseComponent implements OnInit {
     }
 
     next() {
-        this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`
-        this.serveyService.createSurvey(this.survey);
         this.router.navigateByUrl('/');
     }
 

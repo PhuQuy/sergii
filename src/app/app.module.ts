@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './routes/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { YourQuoteComponent } from './routes/your-quote/your-quote.component';
 import { YourChoiseComponent } from './routes/your-choise/your-choise.component';
+import { LoginComponent } from './routes/login/login.component';
 
 
 @NgModule({
@@ -20,8 +20,8 @@ import { YourChoiseComponent } from './routes/your-choise/your-choise.component'
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    YourQuoteComponent,
-    YourChoiseComponent
+    YourChoiseComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
