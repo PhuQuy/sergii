@@ -9,7 +9,7 @@ export class ServeyService {
   constructor(private http: Http) { }
 
    createSurvey(survey) {
-    return this.http.post('http://localhost:3000/api/survey', survey).subscribe((res: Response) => {
+    return this.http.post('/api/survey', survey).subscribe((res: Response) => {
         return res;
     });
 }
