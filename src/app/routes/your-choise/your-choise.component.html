@@ -114,120 +114,20 @@
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 4)">
+<form class="flow-question"  *ngFor="let question of questions; let i = index" [hidden]="!(slide == (i + 4))">
   <div>
     <div class="flow-question-header">
-      <div class="flow-question-header-title">Did you ever consumed pills?</div>
+      <div class="flow-question-header-title" [innerHtml]="question.title"></div>
     </div>
   </div>
   <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.consumedPill = 'true'; nextSlide()">Yes</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.consumedPill = 'false'; nextSlide()">No</button>
-    </div>
+    <div class="flow-choice_list-item" *ngFor="let option of question.options">
+      <button class="flow-choice_list-link" type="submit" (click)="addQuestion(question.title, option.value); nextSlide()">{{option.value}}</button>
+    </div> 
   </div>
 </form>
 
-<form class="flow-question" [hidden]="!(slide == 5)">
-  <div>
-    <div class="flow-question-header">
-      <div class="flow-question-header-title">Do you have preference which to use?</div>
-    </div>
-  </div>
-  <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.preferenceConsumedPill = 'Option1'; nextSlide()">Option1</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.preferenceConsumedPill = 'Option1';nextSlide()">Option2</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.preferenceConsumedPill = 'Option1';nextSlide()">Option3</button>
-    </div>
-  </div>
-</form>
-
-<form class="flow-question" [hidden]="!(slide == 6)">
-  <div>
-    <div class="flow-question-header">
-      <div class="flow-question-header-title">Take advantage of generic option?</div>
-    </div>
-  </div>
-  <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.advantageGeneric = 'Option1';nextSlide()">Option1</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.advantageGeneric = 'Option1';nextSlide()">Option2</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.advantageGeneric = 'Option1';nextSlide()">Option3</button>
-    </div>
-  </div>
-</form>
-
-<form class="flow-question" [hidden]="!(slide == 7)">
-  <div>
-    <div class="flow-question-header">
-      <div class="flow-question-header-title">How often you want to renew your subscription?</div>
-    </div>
-  </div>
-  <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.renewSubscriptionTime = 'Option1';nextSlide()">Option1</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.renewSubscriptionTime = 'Option1';nextSlide()">Option2</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.renewSubscriptionTime = 'Option1';nextSlide()">Option3</button>
-    </div>
-  </div>
-</form>
-
-<form class="flow-question" [hidden]="!(slide == 8)">
-  <div>
-    <div class="flow-question-header">
-      <div class="flow-question-header-title">Did you experience any serious side effects
-        <strong>that made you stop</strong>?</div>
-    </div>
-  </div>
-  <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.sideEffect = 'Option1';nextSlide()">No, never had any side effects</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.sideEffect = 'Option1';nextSlide()">No, side effects did not make me stop</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.sideEffect = 'Option1';nextSlide()">Yes</button>
-    </div>
-  </div>
-</form>
-
-<form class="flow-question" [hidden]="!(slide == 9)">
-  <div>
-    <div class="flow-question-header">
-      <div class="flow-question-header-title">Have you had a physical exam with a healthcare provider in the past five years? If so, did the provider also examine
-        the genitals? If not, we recommend visiting a healthcare provider before using our services.</div>
-    </div>
-  </div>
-  <div class="flow-choice_list">
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, it was normal</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">Yes, but there were issues.</button>
-    </div>
-    <div class="flow-choice_list-item">
-      <button class="flow-choice_list-link" type="submit" (click)="survey.physicalExam = 'Option1';nextSlide()">No</button>
-    </div>
-  </div>
-</form>
-
-<form class="flow-question" [hidden]="!(slide == 10)">
+<form class="flow-question" [hidden]="!(slide == fullStep)">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title">Thank you. You should receive email with your registration details now. Please use the following links depending on

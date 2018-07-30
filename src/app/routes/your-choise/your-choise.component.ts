@@ -33,15 +33,96 @@ export class YourChoiseComponent implements OnInit {
         birthDay: null,
         postCode: '',
         email: '',
-        consumedPill: '',
-        preferenceConsumedPill: '',
-        advantageGeneric: '',
-        renewSubscriptionTime: '',
-        sideEffect: '',
-        physicalExam: ''
+        questions: []
     }
 
-    constructor(public router: Router, public serveyService: ServeyService) { }
+    questions = [
+        {
+            title: 'Did you ever consumed pills?',
+            options: [
+                {
+                    value: 'Yes'
+                },
+                {
+                    value: 'No'
+                }
+            ]
+        },
+        {
+            title: 'Do you have preference which to use?',
+            options: [
+                {
+                    value: 'Option1'
+                },
+                {
+                    value: 'Option2'
+                },
+                {
+                    value: 'Option3'
+                }
+            ]
+        },
+        {
+            title: 'Take advantage of generic option?',
+            options: [
+                {
+                    value: 'Option1'
+                },
+                {
+                    value: 'Option2'
+                },
+                {
+                    value: 'Option3'
+                }
+            ]
+        },
+        {
+            title: 'How often you want to renew your subscription?',
+            options: [
+                {
+                    value: 'Option1'
+                },
+                {
+                    value: 'Option2'
+                },
+                {
+                    value: 'Option3'
+                }
+            ]
+        },
+        {
+            title: 'Did you experience any serious side effects <strong>that made you stop</strong>?',
+            options: [
+                {
+                    value: 'No, never had any side effects'
+                },
+                {
+                    value: 'No, side effects did not make me stop'
+                },
+                {
+                    value: 'Yes'
+                }
+            ]
+        },
+        {
+            title: 'Have you had a physical exam with a healthcare provider in the past five years? If so, did the provider also examine the genitals? If not, we recommend visiting a healthcare provider before using our services?',
+            options: [
+                {
+                    value: 'Yes, it was normal'
+                },
+                {
+                    value: 'Yes, but there were issues'
+                },
+                {
+                    value: 'No'
+                }
+            ]
+        }
+    ]
+
+    constructor(public router: Router, public serveyService: ServeyService) { 
+        this.fullStep = 4 + this.questions.length;
+    }
 
     ngOnInit() {
         this.percent = this.slide * 100 / this.fullStep;
@@ -52,7 +133,7 @@ export class YourChoiseComponent implements OnInit {
         this.percent = this.slide * 100 / this.fullStep;
 
         if (this.slide == this.fullStep) {
-            this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`
+            this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`;            
             this.serveyService.createSurvey(this.survey);
         }
     }
@@ -62,6 +143,10 @@ export class YourChoiseComponent implements OnInit {
             this.slide--;
             this.percent = this.slide * 100 / this.fullStep;
         }
+    }
+
+    addQuestion(title, anwser) {
+        this.survey.questions.push({question: title, anwser: anwser});
     }
 
     valueChange(e) {

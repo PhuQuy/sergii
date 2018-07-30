@@ -10,7 +10,7 @@ export class ServeyService {
 
    createSurvey(survey) {
     return this.http.post('http://localhost:3000/api/survey', survey).subscribe((res: Response) => {
-        return res.json();
+        return res;
     });
 }
 }

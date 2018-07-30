@@ -8,12 +8,7 @@ const surveySchema = new Schema({
   birthDay: Schema.Types.Date,
   postCode: Schema.Types.String,
   email: Schema.Types.String,
-  consumedPill: Schema.Types.String,
-  preferenceConsumedPill: Schema.Types.String,
-  advantageGeneric: Schema.Types.String,
-  renewSubscriptionTime: Schema.Types.String,
-  sideEffect: Schema.Types.String,
-  physicalExam: Schema.Types.String
+  questions: Schema.Types.Array
 });
 
 mongoose.model('Survey', surveySchema);

@@ -27,12 +27,7 @@ export function createSurvey(req, res) {
       birthDay: req.body.birthDay,
       postCode: req.body.postCode,
       email: req.body.email,
-      consumedPill: req.body.consumedPill,
-      preferenceConsumedPill: req.body.preferenceConsumedPill,
-      advantageGeneric: req.body.advantageGeneric,
-      renewSubscriptionTime: req.body.renewSubscriptionTime,
-      sideEffect: req.body.sideEffect,
-      physicalExam: req.body.physicalExam
+      questions: req.body.questions
     }).save().then(() => {
       let mailOptions = {
         from: config.emailSendFrom,
