@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AuthGuard } from './core/auth.guard';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -12,6 +13,8 @@ import { HomeComponent } from './routes/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { YourChoiseComponent } from './routes/your-choise/your-choise.component';
 import { LoginComponent } from './routes/login/login.component';
+import { PasswordComponent } from './routes/password/password.component';
+import { UserComponent } from './routes/user/user.component';
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import { LoginComponent } from './routes/login/login.component';
     HomeComponent,
     FooterComponent,
     YourChoiseComponent,
-    LoginComponent
+    LoginComponent,
+    PasswordComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ import { LoginComponent } from './routes/login/login.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

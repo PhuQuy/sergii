@@ -8,18 +8,19 @@
         <div class="form page_login-form">
           <div class="form-item">
             <label for="email" class="form_field">
-              <input class="form_field-control" name="email" id="email" type="email" value="">
-              <span class="form_field-label">Email address</span>
+              <input class="form_field-control" name="email" id="email" type="email" value="" [(ngModel)]="email" placeholder="Email Address">
             </label>
           </div>
           <div class="form-item">
             <label for="password" class="form_field">
-              <input class="form_field-control" name="password" id="password" type="password" value="">
-              <span class="form_field-label">Password</span>
+              <input class="form_field-control" name="password" id="password" type="password" [(ngModel)]="password" value="" placeholder="Password">
             </label>
           </div>
         </div>
-        <button type="submit" class="button page_login-button button--secondary button--block">Login</button>
+        <div class="alert alert-danger" [hidden]="!error">
+          <strong>Error!</strong> Email and Password does not match. Please try again!
+        </div>
+        <button type="submit" class="button page_login-button button--secondary button--block" (click)="login()">Login</button>
       </form>
       <ul class="page_login-links">
         <li class="page_login-links-item">
@@ -27,7 +28,7 @@
         </li>
         <li class="page_login-links-item">
           <a class="page_login-links-link" [routerLink]="['/']">Don’t have an account yet?&nbsp;</a>
-          <a class="page_login-links-link page_login-links-link--highlight"  [routerLink]="['/']">Get Started</a>
+          <a class="page_login-links-link page_login-links-link--highlight" [routerLink]="['/']">Get Started</a>
         </li>
       </ul>
     </div>

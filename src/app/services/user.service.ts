@@ -6,29 +6,34 @@ import { throwError } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class ServeyService {
+export class UserService {
     // host = "http://localhost:3000";
     host = '';
     constructor(private http: Http) { }
 
-    createSurvey(survey) {
-        return this.http.post(`${this.host}/api/survey`, survey).subscribe((res: Response) => {
-            return res;
-        });
+    createUser(user) {
+        return this.http.post(`${this.host}/api/users`, user);
     }
 
     getById(id) {
         return this.http.get(`${this.host}/api/survey/${id}`)
             .pipe(
                 map((res: Response) => {
-                    let data: any = res;
-                    return data._body;
+                    return JSON.parse(res['_body']);
                 }),
                 catchError(this.handleError)
             );
     }
 
+    authentication(email, password) {
+        return this.http
+            .post(`${this.host}/api/users/login`, { email: email, password: password }).pipe(
+                map((res) => JSON.parse(res['_body'])),
+                catchError(this.handleError)
+            )
+    }
+
     protected handleError(error: any) {
         return throwError(error);
-      }
+    }
 }
