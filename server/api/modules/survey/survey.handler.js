@@ -13,14 +13,9 @@ export function getAllUsers(req, res) {
 }
 
 const transporter = nodemailer.createTransport({
-  // service: config.emailSerive,
-  // auth: {
-  //   user: config.emailAuth.username,
-  //   pass: config.emailAuth.password
-  // }
-  host: 'localhost',
-  port: 25,
-  secure: false // true for 465, false for other ports
+  host: config.emailHost,
+  port: config.emailPort,
+  secure: config.emailSecure
 });
 
 export function getAllUserById(req, res) {
