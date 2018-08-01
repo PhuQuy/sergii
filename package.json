@@ -7,6 +7,7 @@
     "build": "ng build",
     "buildPROD": "ng build --prod",
     "api": "nodemon server/bin/app --exec babel-node --presets es2015,stage-2",
+    "prod": "node server/bin/app --exec babel-node --presets es2015,stage-2",
     "production": "npm run buildPROD && node server/bin/app",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
