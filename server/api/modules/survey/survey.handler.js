@@ -13,11 +13,14 @@ export function getAllUsers(req, res) {
 }
 
 const transporter = nodemailer.createTransport({
-  service: config.emailSerive,
-  auth: {
-    user: config.emailAuth.username,
-    pass: config.emailAuth.password
-  }
+  // service: config.emailSerive,
+  // auth: {
+  //   user: config.emailAuth.username,
+  //   pass: config.emailAuth.password
+  // }
+  host: 'localhost',
+  port: 25,
+  secure: false // true for 465, false for other ports
 });
 
 export function getAllUserById(req, res) {
@@ -25,7 +28,7 @@ export function getAllUserById(req, res) {
       _id: req.params.id
     })
     .then((survey) =>
-      res.send(survey? survey[0].email : null)
+      res.send(survey ? survey[0].email : null)
     )
     .catch(() => res.sendStatus(500))
 }
@@ -47,7 +50,7 @@ export function createSurvey(req, res) {
         text: `${req.protocol}://${req.get('host')}/verify-password/${survey._id}`
       };
       console.log(mailOptions.text);
-      
+
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log(error);
