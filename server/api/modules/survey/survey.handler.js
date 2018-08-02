@@ -5,9 +5,13 @@ import config from '../../../config';
 const Survey = mongoose.model('Survey');
 
 const transporter = nodemailer.createTransport({
-  host: 'localhost',
-  port: 25,
-  secure: false
+  host: config.emailHost,
+  port: config.emailPort,
+  secure: config.emailSecure
+
+//   host: 'localhost',
+//   port: 25,
+//   secure: false
 });
 
 export function getAllUsers(req, res) {
