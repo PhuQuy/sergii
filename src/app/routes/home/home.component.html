@@ -44,13 +44,11 @@
   </div>
   <form novalidate="">
     <div class="page_start-agreement">
-      <div class="form-check" (click)="confirm = !confirm">
+      <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" (click)="confirm = !confirm" [(ngModel)]="confirm" name="checkvalue" [checked]="confirm">
+          <input class="form-check-input" type="checkbox" name="securely" [(ngModel)]="confirm" (change)="changene()">  I consent to
           <span class="form-check-sign"></span>
-          <label>I consent to
-            <a href="#telemedicineLaws">Telehealth</a>
-          </label>
+          <span><a href="">Telehealth</a></span>
         </label>
       </div>
     </div>

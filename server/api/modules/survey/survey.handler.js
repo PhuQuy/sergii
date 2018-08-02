@@ -4,19 +4,21 @@ import config from '../../../config';
 
 const Survey = mongoose.model('Survey');
 
-export function getAllUsers(req, res) {
-  Survey.find({})
-    .then((surveys) =>
-      res.send(surveys)
-    )
-    .catch(() => res.sendStatus(500))
-}
-
 const transporter = nodemailer.createTransport({
   host: config.emailHost,
   port: config.emailPort,
   secure: config.emailSecure
 });
+
+export function getAllUsers(req, res) {
+
+
+  Survey.find({})
+    .then((surveys) => {
+      res.send(surveys)
+    })
+    .catch((error) => res.sendStatus(500))
+}
 
 export function getAllUserById(req, res) {
   Survey.find({
