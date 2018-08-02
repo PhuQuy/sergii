@@ -5,7 +5,7 @@ import config from '../../../config';
 const Survey = mongoose.model('Survey');
 
 const transporter = nodemailer.createTransport({
-  host: `${config.emailHost}`,
+  host: 'localhost',
   port: config.emailPort,
   secure: config.emailSecure
 
