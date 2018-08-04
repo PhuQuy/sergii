@@ -1,0 +1,21 @@
+<div *ngIf="users && users.length > 0" class="card card-plain">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th *ngFor="let item of head">{{item}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
+          <td *ngIf="!user.name"></td>
+          <td>{{user.password}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { catchError, map } from 'rxjs/operators';
+import {
+  catchError,
+  map,
+} from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import {
+  HttpClient,
+  HttpResponse,
+} from '@angular/common/http';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServeyService {
-    // host = "http://localhost:3000";
-    host = '';
-    constructor(private http: Http) { }
+  // host = "http://localhost:3000";
+  host = '';
 
-    createSurvey(survey) {
-        return this.http.post(`${this.host}/api/survey`, survey).subscribe((res: Response) => {
-            return res;
-        });
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    getById(id) {
-        return this.http.get(`${this.host}/api/survey/${id}`)
-            .pipe(
-                map((res: Response) => {
-                    let data: any = res;
-                    return data._body;
-                }),
-                catchError(this.handleError)
-            );
-    }
+  createSurvey(survey) {
+    return this.http.post(`${this.host}/api/survey`, survey).subscribe((res: Response) => {
+      return res;
+    });
+  }
 
-    protected handleError(error: any) {
-        return throwError(error);
-      }
+  getById(id) {
+    return this.http.get(`${this.host}/api/survey/${id}`).pipe(
+      map((res: any) => res._body),
+      catchError(this.handleError),
+    );
+  }
+
+  protected handleError(error: any) {
+    return throwError(error);
+  }
 }
