@@ -8,6 +8,7 @@ import {
   HttpClient,
   HttpResponse,
 } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,10 @@ export class ServeyService {
   host = '';
 
   constructor(private http: HttpClient) {
+  }
+
+  public getSurvey() {
+    return this.http.get(`${environment.domain}/api/survey`);
   }
 
   createSurvey(survey) {

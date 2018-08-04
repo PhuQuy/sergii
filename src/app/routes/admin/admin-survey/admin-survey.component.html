@@ -1,0 +1,31 @@
+<div *ngIf="survey && survey.length > 0" class="card card-plain">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th *ngFor="let item of head">{{item}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of survey">
+          <td *ngIf="item.hasOwnProperty('name')">{{item.name}}</td>
+          <td *ngIf="!item.hasOwnProperty('name')"></td>
+
+          <td *ngIf="item.hasOwnProperty('gender')">{{item.gender}}</td>
+          <td *ngIf="!item.hasOwnProperty('gender')"></td>
+
+          <td *ngIf="item.hasOwnProperty('birthDay')">{{item.birthDay | date}}</td>
+          <td *ngIf="!item.hasOwnProperty('birthDay')"></td>
+
+          <td *ngIf="item.hasOwnProperty('postCode')">{{item.postCode}}</td>
+          <td *ngIf="!item.hasOwnProperty('postCode')"></td>
+
+          <td *ngIf="item.hasOwnProperty('email')">{{item.email}}</td>
+          <td *ngIf="!item.hasOwnProperty('email')"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

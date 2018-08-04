@@ -14,6 +14,7 @@ import { UserComponent } from './routes/user/user.component';
 import { AuthGuard } from './core/auth.guard';
 import {
   AdminComponent,
+  AdminSurveyComponent,
   AdminUserComponent,
 } from './routes/admin';
 
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'users',
         component: AdminUserComponent,
+      },
+      {
+        path: 'survey',
+        component: AdminSurveyComponent,
       },
       {
         path: '',
