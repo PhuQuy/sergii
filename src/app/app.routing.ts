@@ -50,12 +50,7 @@ const routes: Routes = [
       {
         path: 'survey',
         component: AdminSurveyComponent,
-      },
-      {
-        path: '',
-        component: AdminComponent,
-        pathMatch: 'full',
-      },
+      }
     ],
   },
 

@@ -14,8 +14,6 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  // host = "http://localhost:3000";
-  host = '';
 
   constructor(private http: HttpClient) {
   }
@@ -25,11 +23,11 @@ export class UserService {
   }
 
   createUser(user): Observable<any> {
-    return this.http.post(`${this.host}/api/users`, user);
+    return this.http.post(`${environment.domain}/api/users`, user);
   }
 
   getById(id) {
-    return this.http.get(`${this.host}/api/survey/${id}`).pipe(
+    return this.http.get(`${environment.domain}/api/survey/${id}`).pipe(
       map((res: any) => {
         return JSON.parse(res[ '_body' ]);
       }),
@@ -38,7 +36,7 @@ export class UserService {
   }
 
   authentication(email, password) {
-    return this.http.post(`${this.host}/api/users/login`, { email: email, password: password }).pipe(
+    return this.http.post(`${environment.domain}/api/users/login`, { email: email, password: password }).pipe(
       map((res) => JSON.parse(res[ '_body' ])),
       catchError(this.handleError),
     );

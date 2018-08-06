@@ -14,8 +14,6 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ServeyService {
-  // host = "http://localhost:3000";
-  host = '';
 
   constructor(private http: HttpClient) {
   }
@@ -25,13 +23,13 @@ export class ServeyService {
   }
 
   createSurvey(survey) {
-    return this.http.post(`${this.host}/api/survey`, survey).subscribe((res: Response) => {
+    return this.http.post(`${environment.domain}/api/survey`, survey).subscribe((res: Response) => {
       return res;
     });
   }
 
   getById(id) {
-    return this.http.get(`${this.host}/api/survey/${id}`).pipe(
+    return this.http.get(`${environment.domain}/api/survey/${id}`).pipe(
       map((res: any) => res._body),
       catchError(this.handleError),
     );
