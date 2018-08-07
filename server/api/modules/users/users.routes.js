@@ -4,6 +4,9 @@ import * as userHandler from './users.handler';
 export function init(api){
   const router = new Router();
   router.get('/', userHandler.getAllUsers);
+  router.get('/:id', userHandler.getAllUserById);
+  router.post('/email', userHandler.getAllUserByEmail);
+
   router.post('/', userHandler.createUser);
   router.post('/login', userHandler.login);
 

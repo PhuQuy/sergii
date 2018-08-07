@@ -29,7 +29,7 @@ export function getAllUserById(req, res) {
       _id: req.params.id
     })
     .then((survey) =>
-      res.send(survey ? survey[0].email : null)
+      res.send(survey)
     )
     .catch(() => res.sendStatus(500))
 }

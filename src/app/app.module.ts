@@ -15,6 +15,7 @@ import { PasswordComponent } from './routes/password/password.component';
 import { UserComponent } from './routes/user/user.component';
 import { ADMIN_COMPONENTS } from './routes/admin';
 import { HttpClientModule } from '@angular/common/http';
+import { NotfoundComponent } from './routes/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     PasswordComponent,
     UserComponent,
     ADMIN_COMPONENTS,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

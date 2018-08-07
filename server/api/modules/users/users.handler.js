@@ -8,6 +8,24 @@ export function getAllUsers(req, res) {
     .catch(() => res.sendStatus(500))
 }
 
+export function getAllUserById(req, res) {
+  User.find({
+      _id: req.params.id
+    })
+    .then((user) => res.send(user))
+    .catch(() => res.sendStatus(500))
+}
+
+
+export function getAllUserByEmail(req, res) {
+  User.find({
+      email: req.body.email
+    })
+    .then((user) => res.send(user))
+    .catch(() => res.sendStatus(500))
+}
+
+
 export function createUser(req, res) {
   new User({
       email: req.body.email,

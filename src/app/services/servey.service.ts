@@ -30,7 +30,7 @@ export class ServeyService {
 
   getById(id) {
     return this.http.get(`${environment.domain}/api/survey/${id}`).pipe(
-      map((res: any) => res._body),
+      map((res: any) => res),
       catchError(this.handleError),
     );
   }
