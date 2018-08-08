@@ -13,6 +13,8 @@ export class YourChoiseComponent implements OnInit {
     user = {
         consumedPill: null
     };
+    minDate = { year: 1800, month: 1, day: 1 };
+
     confirm: boolean = false;
     sex: string = 'gender';
     errorSex;
@@ -169,7 +171,7 @@ export class YourChoiseComponent implements OnInit {
             this.router.navigateByUrl('/');
             return;
         }
-        if (this.sex == 'Male') {
+        if (this.survey.gender == 'Male') {
             this.errorSex = 'Sorry, we don’t have service for you. Thank you for your attention';
             return;
         }

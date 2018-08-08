@@ -5,13 +5,15 @@ import config from '../../../config';
 const Survey = mongoose.model('Survey');
 
 const transporter = nodemailer.createTransport({
-  host: `${config.emailHost}`,
-  port: config.emailPort,
-  secure: false
+    host: `${config.emailHost}`,
+    port: config.emailPort,
+    secure: false
 
-//   host: 'localhost',
-//   port: 25,
-//   secure: false
+//   service: 'gmail',
+//   auth: {
+//     user: 'phuquy.uit@gmail.com',
+//     pass: 'Ngokylong11@@'
+//   }
 });
 
 export function getAllUsers(req, res) {
@@ -46,12 +48,13 @@ export function createSurvey(req, res) {
   survey.save().then(() => {
       let mailOptions = {
         from: config.emailSendFrom,
+        // from: 'phuquy.uit@gmail.com',
+
         to: req.body.email,
         subject: 'Sending Email from Femito',
         text: `${req.protocol}://${req.get('host')}/verify-password/${survey._id}`
       };
       console.log(mailOptions.text);
-
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log(error);

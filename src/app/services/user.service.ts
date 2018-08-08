@@ -53,6 +53,15 @@ export class UserService {
         );
     }
 
+    getUserBySurvey(surveyId) {
+        return this.http.get(`${environment.domain}/api/users/survey/${surveyId}`).pipe(
+            map((res: any) => {
+                return res;
+            }),
+            catchError(this.handleError),
+        );
+    }
+
     authentication(email, password) {
         return this.http.post(`${environment.domain}/api/users/login`, { email: email, password: password }).pipe(
             map((res) => JSON.parse(res['_body'])),

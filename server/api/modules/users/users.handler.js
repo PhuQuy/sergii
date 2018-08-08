@@ -16,6 +16,13 @@ export function getAllUserById(req, res) {
     .catch(() => res.sendStatus(500))
 }
 
+export function getAllUserBySurvey(req, res) {
+  User.find({
+      survey: req.params.id
+    })
+    .then((user) => res.send(user))
+    .catch(() => res.sendStatus(500))
+}
 
 export function getAllUserByEmail(req, res) {
   User.find({
@@ -29,7 +36,8 @@ export function getAllUserByEmail(req, res) {
 export function createUser(req, res) {
   new User({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      survey: req.body.surveyId
     }).save().then(() => {
       res.sendStatus(200);
     })

@@ -6,6 +6,7 @@ export function init(api){
   router.get('/', userHandler.getAllUsers);
   router.get('/:id', userHandler.getAllUserById);
   router.post('/email', userHandler.getAllUserByEmail);
+  router.get('/survey/:id', userHandler.getAllUserBySurvey);
 
   router.post('/', userHandler.createUser);
   router.post('/login', userHandler.login);
