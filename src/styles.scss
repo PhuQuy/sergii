@@ -4347,3 +4347,26 @@ input:checked+.page_delay-option-label:after {
   z-index: 4;
   pointer-events: none;
 }
+
+.button:hover {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .17);
+}
+
+#cog {
+  -webkit-animation: cog 1s infinite;
+  -moz-animation: cog 1s infinite;
+  -ms-animation: cog 1s infinite;
+  animation: cog 1s infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@keyframes cog {
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}

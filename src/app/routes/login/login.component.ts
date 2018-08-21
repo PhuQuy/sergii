@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     login() {
         this.userService.authentication(this.email, this.password).subscribe(user => {
             if (user) {
-                localStorage.setItem('user', user);
+                localStorage.setItem('user', JSON.stringify(user));
                 this.router.navigateByUrl(`/user/${user['_id']}`);
             } else {
                 this.error = true;

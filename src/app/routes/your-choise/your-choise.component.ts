@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as postcode from 'postcode-validator'
 import { ServeyService } from '../../services/servey.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-your-choise',
     templateUrl: './your-choise.component.html',
     styleUrls: ['./your-choise.component.scss'],
-    providers: [ServeyService]
+    providers: [ServeyService, UserService]
 })
 export class YourChoiseComponent implements OnInit {
     user = {
@@ -28,6 +29,7 @@ export class YourChoiseComponent implements OnInit {
     slide = 1;
     percent = 0;
     fullStep = 10;
+    emailExist = false;
 
     survey = {
         name: '',
@@ -122,7 +124,7 @@ export class YourChoiseComponent implements OnInit {
         }
     ]
 
-    constructor(public router: Router, public serveyService: ServeyService) { 
+    constructor(public router: Router, public serveyService: ServeyService, public userService: UserService) {
         this.fullStep = 4 + this.questions.length;
     }
 
@@ -135,7 +137,7 @@ export class YourChoiseComponent implements OnInit {
         this.percent = this.slide * 100 / this.fullStep;
 
         if (this.slide == this.fullStep) {
-            this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`;            
+            this.survey.birthDay = `${this.survey.birthDay.month}/${this.survey.birthDay.day}/${this.survey.birthDay.year}`;
             this.serveyService.createSurvey(this.survey);
         }
     }
@@ -148,7 +150,7 @@ export class YourChoiseComponent implements OnInit {
     }
 
     addQuestion(title, anwser) {
-        this.survey.questions.push({question: title, anwser: anwser});
+        this.survey.questions.push({ question: title, anwser: anwser });
     }
 
     valueChange(e) {
@@ -207,8 +209,17 @@ export class YourChoiseComponent implements OnInit {
     }
 
     checkEmail() {
+        this.emailExist = false;
+
         if (this.validateEmail(this.survey.email)) {
-            this.nextSlide();
+            this.userService.checkExistEmail(this.survey.email).subscribe(res => {
+                if (Boolean(res)) {
+                    this.emailExist = true;
+                } else {
+                    this.nextSlide();
+                }
+            })
+            // 
         }
     }
 

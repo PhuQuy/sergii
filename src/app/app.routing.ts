@@ -18,6 +18,8 @@ import {
     AdminUserComponent,
 } from './routes/admin';
 import { NotfoundComponent } from './routes/notfound/notfound.component';
+import { ForgotPasswordComponent } from './routes/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './routes/reset-password/reset-password.component';
 
 const routes: Routes = [
     {
@@ -35,6 +37,14 @@ const routes: Routes = [
     {
         path: 'verify-password/:id',
         component: PasswordComponent,
+    },
+    {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent,
+    },
+    {
+        path: 'reset-password/:id',
+        component: ResetPasswordComponent,
     },
     {
         path: 'user/:id',
