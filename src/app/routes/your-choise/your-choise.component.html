@@ -110,11 +110,19 @@
       <div class="text-center margin-top-20">
         <button class="btn btn-red" [disabled]="!validateEmail(survey.email)" (click)="checkEmail()">Next</button>
       </div>
+
+      <div class="alert alert-warning" [hidden]="!emailExist" style="margin-top: 30px">
+        <strong>Info!</strong> We can see you’ve been registered already, please login with you password here:
+        <li class="page_login-links-item" style="margin-top: 10px">
+          <a class="page_login-links-link" [routerLink]="['/login']"><strong>LOGIN</strong></a> or
+          <a class="page_login-links-link page_login-links-link--highlight" [routerLink]="['/forgot-password']"><strong>I FORGOT MY PASSWORD</strong></a>
+        </li>
+      </div>
     </div>
   </div>
 </form>
 
-<form class="flow-question font-weight-bold"  *ngFor="let question of questions; let i = index" [hidden]="!(slide == (i + 4))">
+<form class="flow-question font-weight-bold" *ngFor="let question of questions; let i = index" [hidden]="!(slide == (i + 4))">
   <div>
     <div class="flow-question-header">
       <div class="flow-question-header-title" [innerHtml]="question.title"></div>
@@ -123,7 +131,7 @@
   <div class="flow-choice_list">
     <div class="flow-choice_list-item" *ngFor="let option of question.options">
       <button class="flow-choice_list-link" type="submit" (click)="addQuestion(question.title, option.value); nextSlide()">{{option.value}}</button>
-    </div> 
+    </div>
   </div>
 </form>
 

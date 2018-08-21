@@ -2,6 +2,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import express from 'express';
+import  session from 'express-session';
 import path from 'path';
 
 import api from '../api';
@@ -19,6 +20,13 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
+
+//use sessions for tracking logins
+app.use(session({
+    secret: 'work hard',
+    resave: true,
+    saveUninitialized: false
+  }));
 
 app.use('/api', api);
 

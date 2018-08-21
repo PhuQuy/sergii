@@ -44,8 +44,36 @@ export class UserService {
         );
     }
 
+
+    checkExistEmail(email) {
+        return this.http.post(`${environment.domain}/api/users/check`, {resetString: email}).pipe(
+            map((res: any) => {
+                return res;
+            }),
+            catchError(this.handleError),
+        );
+    }
+
+    forgotPassword(email) {
+        return this.http.post(`${environment.domain}/api/users/forgot-passowrd`, {email: email}).pipe(
+            map((res: any) => {
+                return res;
+            }),
+            catchError(this.handleError),
+        );
+    }
+
+    resetPassword(resetString, passowrd) {
+        return this.http.post(`${environment.domain}/api/users/reset-passowrd`, {resetString: resetString, newPassowrd: passowrd}).pipe(
+            map((res: any) => {
+                return res;
+            }),
+            catchError(this.handleError),
+        );
+    }
+
     getUserByEmail(email) {
-        return this.http.post(`${environment.domain}/api/users/email`, {email: email}).pipe(
+        return this.http.post(`${environment.domain}/api/users/email`, { email: email }).pipe(
             map((res: any) => {
                 return res;
             }),
@@ -64,7 +92,7 @@ export class UserService {
 
     authentication(email, password) {
         return this.http.post(`${environment.domain}/api/users/login`, { email: email, password: password }).pipe(
-            map((res) => JSON.parse(res['_body'])),
+            map((res) => res),
             catchError(this.handleError),
         );
     }

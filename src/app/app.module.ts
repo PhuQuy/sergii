@@ -16,6 +16,8 @@ import { ADMIN_COMPONENTS } from './routes/admin';
 import { HttpClientModule } from '@angular/common/http';
 import { NotfoundComponent } from './routes/notfound/notfound.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { ForgotPasswordComponent } from './routes/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './routes/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { OrderModule } from 'ngx-order-pipe';
     PasswordComponent,
     UserComponent,
     ADMIN_COMPONENTS,
-    NotfoundComponent
+    NotfoundComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
