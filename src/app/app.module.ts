@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './core/auth.guard';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './routes/home/home.component';
@@ -16,6 +15,7 @@ import { UserComponent } from './routes/user/user.component';
 import { ADMIN_COMPONENTS } from './routes/admin';
 import { HttpClientModule } from '@angular/common/http';
 import { NotfoundComponent } from './routes/notfound/notfound.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -28,11 +28,12 @@ import { NotfoundComponent } from './routes/notfound/notfound.component';
     PasswordComponent,
     UserComponent,
     ADMIN_COMPONENTS,
-    NotfoundComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    OrderModule,
     NgbModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,

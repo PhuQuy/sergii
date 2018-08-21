@@ -1,0 +1,11 @@
+.row {
+    padding-top: 20px;
+}
+
+.btn-primary {
+    background-color: #1583cc;
+}
+
+a {
+    color: white !important;
+}
