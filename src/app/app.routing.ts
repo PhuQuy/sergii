@@ -53,6 +53,7 @@ const routes: Routes = [
     },
     {
         path: 'admin',
+        component: AdminComponent,
         children: [
             {
                 path: 'users',
