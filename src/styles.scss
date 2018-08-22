@@ -4370,3 +4370,7 @@ input:checked+.page_delay-option-label:after {
     transform: rotate(360deg)
   }
 }
+
+.table thead th {
+  vertical-align: middle;
+}
