@@ -46,7 +46,7 @@ export class UserService {
 
 
     checkExistEmail(email) {
-        return this.http.post(`${environment.domain}/api/users/check`, {resetString: email}).pipe(
+        return this.http.post(`${environment.domain}/api/users/check`, {email: email}).pipe(
             map((res: any) => {
                 return res;
             }),

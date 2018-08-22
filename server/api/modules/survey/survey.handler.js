@@ -1,21 +1,8 @@
 import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
 import config from '../../../config';
+import transporter from './../../lib';
 
 const Survey = mongoose.model('Survey');
-var hbs = require('nodemailer-express-handlebars');
-
-const transporter = nodemailer.createTransport({
-  // host: `${config.emailHost}`,
-  // port: config.emailPort,
-  // secure: false
-
-  service: 'gmail',
-  auth: {
-    user: 'phuquy.uit@gmail.com',
-    pass: 'Ngokylong11@@'
-  }
-});
 
 export function getAllUsers(req, res) {
 
@@ -36,11 +23,6 @@ export function getAllUserById(req, res) {
     )
     .catch(() => res.sendStatus(500))
 }
-
-transporter.use('compile', hbs({
-  viewPath: 'server/templates/verify-email',
-  extName: '.hbs'
-}))
 
 export function createSurvey(req, res) {
   let survey = new Survey({

@@ -1,34 +1,13 @@
 import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
 import config from '../../../config';
+import transporter from './../../lib';
 
 const User = mongoose.model('User');
-
 const Role = {
-  "ADMIN": 1,
-  "USER": 2
-}
-const transporter = nodemailer.createTransport({
-  // host: `${config.emailHost}`,
-  // port: config.emailPort,
-  // secure: false
-
-  service: 'gmail',
-  auth: {
-    user: 'phuquy.uit@gmail.com',
-    pass: 'Ngokylong11@@'
+    "ADMIN": 1,
+    "USER": 2
   }
-});
-
 export async function getAllUsers(req, res, next) {
-//   console.log(req.session.userId);
-
-//   let user = await User.findById(req.session.userId);
-//   if (!user) {
-//     var err = new Error('Not authorized!');
-//     err.status = 401;
-//     return next(err);
-//   }
   User.find()
     .then((users) => res.send(users))
     .catch(() => res.sendStatus(500))
@@ -63,6 +42,10 @@ export function checkExistEmail(req, res, next) {
       email: req.body.email
     })
     .then((user) => {
+      console.log(user);
+      console.log(req.body.email);
+      
+
       if (user) {
         res.send(true);
       } else {
@@ -119,7 +102,11 @@ export function forGotPassword(req, res, next) {
             from: 'phuquy.uit@gmail.com',
             to: req.body.email,
             subject: 'Sending Email from Femito',
-            text: `${req.protocol}://${req.get('host')}/reset-password/${user.resetString}`
+            template: 'reset-password',
+            context: {
+              name: user.name,
+              link: `${req.protocol}://${req.get('host')}/reset-password/${user.resetString}`
+            },
           };
           console.log(mailOptions.text);
           transporter.sendMail(mailOptions, function (error, info) {
