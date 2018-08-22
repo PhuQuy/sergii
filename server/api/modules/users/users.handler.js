@@ -4,6 +4,10 @@ import config from '../../../config';
 
 const User = mongoose.model('User');
 
+const Role = {
+  "ADMIN": 1,
+  "USER": 2
+}
 const transporter = nodemailer.createTransport({
   // host: `${config.emailHost}`,
   // port: config.emailPort,
@@ -138,7 +142,7 @@ export function createUser(req, res) {
   new User({
       email: req.body.email,
       password: req.body.password,
-      role: 0,
+      role: Role.USER,
       survey: req.body.surveyId
     }).save().then(() => {
       res.sendStatus(200);
@@ -154,7 +158,7 @@ export function login(req, res, next) {
     res.send({
       email: config.adminEmail,
       password: config.adminPassword,
-      role: 1
+      role: Role.ADMIN
     });
     return;
   }
