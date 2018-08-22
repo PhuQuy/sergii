@@ -21,14 +21,14 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function getAllUsers(req, res, next) {
-  console.log(req.session.userId);
+//   console.log(req.session.userId);
 
-  let user = await User.findById(req.session.userId);
-  if (!user) {
-    var err = new Error('Not authorized!');
-    err.status = 401;
-    return next(err);
-  }
+//   let user = await User.findById(req.session.userId);
+//   if (!user) {
+//     var err = new Error('Not authorized!');
+//     err.status = 401;
+//     return next(err);
+//   }
   User.find()
     .then((users) => res.send(users))
     .catch(() => res.sendStatus(500))
