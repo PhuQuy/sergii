@@ -19,6 +19,7 @@
         </div>
         <div class="alert alert-danger" [hidden]="!error">
           <strong>Error!</strong> Email and Password does not match. Please try again!
+          <a [routerLink]="['/forgot-password']">Forgot your password?</a>
         </div>
         <button type="submit" class="button page_login-button button--secondary button--block" (click)="login()">Login</button>
       </form>
