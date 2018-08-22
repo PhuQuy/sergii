@@ -5,7 +5,9 @@ const config = {
   emailHost: process.env.EMAIL_HOST || 'localhost',
   emailPort: process.env.EMAIL_PORT || 25,
   emailSecure: process.env.EMAIL_SECURE || false,
-  emailSendFrom: process.env.EMAIL_SEND_FROM || 'app@femito.com'
+  emailSendFrom: process.env.EMAIL_SEND_FROM || 'app@femito.com',
+  adminEmail: process.env.ADMIN_EMAIL,
+  adminPassword: process.env.ADMIN_PASSWORD
 };
 
 export default config;

@@ -95,7 +95,7 @@ export function resetPassword(req, res, next) {
       })
     })
     .catch((error) => {
-        res.send(false);
+      res.send(false);
     });
 }
 
@@ -138,6 +138,7 @@ export function createUser(req, res) {
   new User({
       email: req.body.email,
       password: req.body.password,
+      role: 0,
       survey: req.body.surveyId
     }).save().then(() => {
       res.sendStatus(200);
@@ -148,6 +149,15 @@ export function createUser(req, res) {
 }
 
 export function login(req, res, next) {
+  if (req.body.email == config.adminEmail && req.body.password == config.adminPassword) {
+    req.session.userId = 999;
+    res.send({
+      email: config.adminEmail,
+      password: config.adminPassword,
+      role: 1
+    });
+    return;
+  }
   User.findOne({
     email: req.body.email
   }, function (err, user) {
