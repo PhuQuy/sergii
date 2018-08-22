@@ -3,11 +3,12 @@ import nodemailer from 'nodemailer';
 import config from '../../../config';
 
 const Survey = mongoose.model('Survey');
+var hbs = require('nodemailer-express-handlebars');
 
 const transporter = nodemailer.createTransport({
-    // host: `${config.emailHost}`,
-    // port: config.emailPort,
-    // secure: false
+  // host: `${config.emailHost}`,
+  // port: config.emailPort,
+  // secure: false
 
   service: 'gmail',
   auth: {
@@ -36,6 +37,11 @@ export function getAllUserById(req, res) {
     .catch(() => res.sendStatus(500))
 }
 
+transporter.use('compile', hbs({
+  viewPath: 'server/templates/verify-email',
+  extName: '.hbs'
+}))
+
 export function createSurvey(req, res) {
   let survey = new Survey({
     name: req.body.name,
@@ -50,9 +56,13 @@ export function createSurvey(req, res) {
         // from: config.emailSendFrom,
         from: 'phuquy.uit@gmail.com',
 
-        to: req.body.email,
+        to: survey.email,
         subject: 'Sending Email from Femito',
-        text: `${req.protocol}://${req.get('host')}/verify-password/${survey._id}`
+        template: 'verify',
+        context: {
+          name: survey.name,
+          link: `${req.protocol}://${req.get('host')}/verify-password/${survey._id}`
+        },
       };
       console.log(mailOptions.text);
       transporter.sendMail(mailOptions, function (error, info) {
