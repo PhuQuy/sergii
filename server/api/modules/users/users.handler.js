@@ -155,7 +155,7 @@ export function login(req, res, next) {
     if (err || !user) {
       var err = new Error('Wrong email or password.');
       err.status = 401;
-      return next(error);
+      return next(err);
     }
 
     // test a matching password
