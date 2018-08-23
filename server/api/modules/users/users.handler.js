@@ -8,7 +8,7 @@ const Role = {
   "ADMIN": 1,
   "USER": 2
 }
-const moment = require('moment'); 
+const moment = require('moment');
 
 export async function getAllUsers(req, res, next) {
   User.find()
@@ -137,8 +137,8 @@ export async function createUser(req, res) {
       password: req.body.password,
       role: Role.USER,
       survey: req.body.survey,
-      postCode: survey? survey.postCode : null,
-      registrationDate: moment(new Date()).format('yyyy-MM-dd'),
+      postCode: survey ? survey.postCode : null,
+      registrationDate: moment(new Date()).format('lll'),
       activeSubscription: true,
       daysLeft: 0
     }).save().then(() => {
@@ -188,10 +188,9 @@ export function login(req, res, next) {
 }
 
 export function deleteUser(req, res) {
-  User.deleteOne({"_id": req.params.id}, function (err, obj) {
-      // console.log(err);
-      console.log(obj);
-    })
-    .then(() => res.sendStatus(200))
-    .catch(() => res.sendStatus(500))
+  User.deleteOne({
+    _id: req.params.id
+  }).then(() => {
+    res.send(true)
+  }).catch(() => res.sendStatus(500))
 }

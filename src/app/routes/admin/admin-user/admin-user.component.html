@@ -32,11 +32,11 @@
             <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
             <td *ngIf="!user.name"></td>
             <td>{{user.email}}</td>
-            <td>{{user.postalCode}}</td>
+            <td>{{user.postCode}}</td>
             <td>{{user.address}}</td>
             <td>{{user.registrationDate}}</td>
             <td>{{user.activeSubscription}}</td>
-            <td>{{user.dayLeft}}</td>
+            <td>{{user.daysLeft}}</td>
             <td class="td-actions text-right">
               <a href="mailto:{{user.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
                 <i class="far fa-envelope-open email-envelope"></i>

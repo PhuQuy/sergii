@@ -99,8 +99,8 @@ export class UserService {
 
     delete(id) {
         return this.http.delete(`${environment.domain}/api/users/${id}`).pipe(
-            map((res: any) => res.ok),
-            catchError(this.handleError),
+            map((res: any) => res),
+            catchError(this.handleError)
         );
     }
 
