@@ -19,6 +19,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { ForgotPasswordComponent } from './routes/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './routes/reset-password/reset-password.component';
 import { ComfirmationModalComponent } from './components/comfirmation-modal/comfirmation-modal.component';
+import { AdminOrderComponent } from './routes/admin/admin-order/admin-order.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ComfirmationModalComponent } from './components/comfirmation-modal/comf
     ForgotPasswordComponent,
     ResetPasswordComponent,
     ComfirmationModalComponent,
+    AdminOrderComponent,
   ],
   imports: [
     BrowserModule,

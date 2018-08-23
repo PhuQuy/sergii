@@ -19,7 +19,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th *ngFor="let item of customerHead" (click)="sortByHeader(item)">{{item.label}}
+            <th *ngFor="let item of head" (click)="sortByHeader(item)">{{item}}
               <i class="fas" [ngClass]="{'fa-sort-up': (item.property === order && reverse),
                                           'fa-sort-down': (item.property === order && !reverse)}">
               </i>
@@ -27,7 +27,7 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody *ngIf="users && users.length > 0" >
+        <tbody>
           <tr class="ng-star-inserted" *ngFor="let user of users | orderBy: order :reverse ">
             <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
             <td *ngIf="!user.name"></td>

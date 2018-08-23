@@ -1,4 +1,4 @@
-<div *ngIf="survey && survey.length > 0" class="card card-plain">
+<div class="card card-plain">
   <div class="card-header">
     <div class="row">
       <div class="col-xl-4 col-sm-6"></div>
@@ -23,7 +23,7 @@
             <th class="text-center">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="survey && survey.length > 0" >
           <tr *ngFor="let item of survey">
             <td *ngIf="item.hasOwnProperty('name')">{{item.name}}</td>
             <td *ngIf="!item.hasOwnProperty('name')"></td>

@@ -20,6 +20,7 @@ import {
 import { NotfoundComponent } from './routes/notfound/notfound.component';
 import { ForgotPasswordComponent } from './routes/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './routes/reset-password/reset-password.component';
+import { AdminOrderComponent } from './routes/admin/admin-order/admin-order.component';
 
 const routes: Routes = [
     {
@@ -62,6 +63,10 @@ const routes: Routes = [
             {
                 path: 'survey',
                 component: AdminSurveyComponent,
+            },
+            {
+                path: 'order',
+                component: AdminOrderComponent
             }
         ],
     },
