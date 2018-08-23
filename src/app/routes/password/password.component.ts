@@ -21,23 +21,24 @@ export class PasswordComponent implements OnInit {
     error;
     success;
     checkUser;
+    surveyId = '';
     constructor(private activatedRoute: ActivatedRoute, private serveyService: ServeyService, private userService: UserService, private router: Router) {
         this.activatedRoute.params.subscribe(params => {
             if (params['id']) {
-                this.
-                    serveyService.getById(params['id']).subscribe(survey => {
-                        this.user.email = survey[0].email;
-                        userService.getUserByEmail(survey[0].email).subscribe(user => {
-                            this.checkUser = user [0];
-                            // if(this.checkUser) {
-                            //     this.router.navigate(['/notfound']);
-                            // }
-                        });
-                        if (!this.user.email) {
-                            this.user.survey = params['id'];
-                            this.router.navigate(['/notfound']);
-                        }
+                this.surveyId = params['id'];
+                this.serveyService.getById(params['id']).subscribe(survey => {
+                    this.user.email = survey[0].email;
+                    this.user.survey = params['id'];
+                    userService.getUserByEmail(survey[0].email).subscribe(user => {
+                        this.checkUser = user[0];
+                        // if(this.checkUser) {
+                        //     this.router.navigate(['/notfound']);
+                        // }
                     });
+                    if (!this.user.email) {
+                        this.router.navigate(['/notfound']);
+                    }
+                });
 
                 // userService.getUserBySurvey(params['id']).subscribe(user => {
                 //     this.checkUser = user[0];
@@ -55,7 +56,7 @@ export class PasswordComponent implements OnInit {
         if (this.repassword === this.user.password) {
             this.userService.createUser(this.user).subscribe(res => {
                 console.log(res);
-                
+
                 this.success = true;
             }, error => {
                 // this.error = error;

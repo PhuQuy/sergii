@@ -1,12 +1,15 @@
 import mongoose from 'mongoose';
 import config from '../../../config';
 import transporter from './../../lib';
+const Survey = mongoose.model('Survey');
 
 const User = mongoose.model('User');
 const Role = {
-    "ADMIN": 1,
-    "USER": 2
-  }
+  "ADMIN": 1,
+  "USER": 2
+}
+const moment = require('moment'); 
+
 export async function getAllUsers(req, res, next) {
   User.find()
     .then((users) => res.send(users))
@@ -44,7 +47,7 @@ export function checkExistEmail(req, res, next) {
     .then((user) => {
       console.log(user);
       console.log(req.body.email);
-      
+
 
       if (user) {
         res.send(true);
@@ -125,12 +128,19 @@ export function forGotPassword(req, res, next) {
     .catch(() => res.sendStatus(500))
 }
 
-export function createUser(req, res) {
+export async function createUser(req, res) {
+  let survey = await Survey.findById(req.body.survey);
+  console.log(survey);
+
   new User({
       email: req.body.email,
       password: req.body.password,
       role: Role.USER,
-      survey: req.body.surveyId
+      survey: req.body.survey,
+      postCode: survey? survey.postCode : null,
+      registrationDate: moment(new Date()).format('yyyy-MM-dd'),
+      activeSubscription: true,
+      daysLeft: 0
     }).save().then(() => {
       res.sendStatus(200);
     })

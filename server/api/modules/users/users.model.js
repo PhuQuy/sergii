@@ -24,6 +24,26 @@ const userSchema = new Schema({
   resetString: {
     type: String,
     required: false
+  },
+  survey: {
+    type: String,
+    required: false
+  },
+  postCode: {
+    type: String,
+    required: false
+  },
+  registrationDate: {
+    type: String,
+    required: false
+  },
+  activeSubscription: {
+    type: Boolean,
+    required: false
+  },
+  daysLeft: {
+    type: Number,
+    required: false
   }
 });
 
