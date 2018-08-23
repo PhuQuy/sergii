@@ -18,6 +18,7 @@ import { NotfoundComponent } from './routes/notfound/notfound.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { ForgotPasswordComponent } from './routes/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './routes/reset-password/reset-password.component';
+import { ComfirmationModalComponent } from './components/comfirmation-modal/comfirmation-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ResetPasswordComponent } from './routes/reset-password/reset-password.c
     NotfoundComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    ComfirmationModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { ResetPasswordComponent } from './routes/reset-password/reset-password.c
     HttpClientModule,
     AppRoutingModule,
   ],
+  entryComponents: [ComfirmationModalComponent],
   providers: [ AuthGuard ],
   bootstrap: [ AppComponent ],
 })

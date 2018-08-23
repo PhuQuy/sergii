@@ -1,14 +1,16 @@
 <div *ngIf="users && users.length > 0" class="card card-plain">
   <div class="card-header">
     <div class="row">
+      <div class="col-xl-4 col-sm-6"></div>
       <div class="col-xl-4 col-sm-6">
-        <label class="form_field">
-          <span>Search</span>
-          <input class="form_field-control" type="text" name="search" placeholder="Search for customer/address/email">
-        </label>
-        <a class="btn btn-primary">
-          <i class="fas fa-filter"> Filter</i>
-        </a>
+        <div class="input-group">
+          <input class="form-control border-left" placeholder="Search" type="text">
+          <div class="input-group-append">
+            <span class="input-group-text transparent">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -17,12 +19,16 @@
       <table class="table">
         <thead>
           <tr>
-            <th *ngFor="let item of customerHead" (click)="sortByHeader(item)">{{item.label}} <i class="fas" [ngClass]="{'fa-sort-up': (item.property === order && reverse),
-                                                                                                            'fa-sort-down': (item.property === order && !reverse)}"></i></th>
+            <th *ngFor="let item of customerHead" (click)="sortByHeader(item)">{{item.label}}
+              <i class="fas" [ngClass]="{'fa-sort-up': (item.property === order && reverse),
+                                          'fa-sort-down': (item.property === order && !reverse)}">
+              </i>
+            </th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of users | orderBy: order :reverse">
+          <tr class="ng-star-inserted" *ngFor="let user of users | orderBy: order :reverse ">
             <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
             <td *ngIf="!user.name"></td>
             <td>{{user.email}}</td>
@@ -31,6 +37,14 @@
             <td>{{user.registrationDate}}</td>
             <td>{{user.activeSubscription}}</td>
             <td>{{user.dayLeft}}</td>
+            <td class="td-actions text-right">
+              <a href="mailto:{{user.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
+                <i class="far fa-envelope-open email-envelope"></i>
+              </a>             
+              <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm" (click)="delete(user._id)">
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -8,6 +8,7 @@ export function init(api){
   router.get('/', userHandler.getAllUsers);
 
   router.get('/:id', userHandler.getAllUserById);
+  router.delete('/:id', userHandler.deleteUser);
   router.post('/check', userHandler.checkExistEmail);
 
   router.post('/email', userHandler.getAllUserByEmail);

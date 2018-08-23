@@ -1,29 +1,53 @@
 <div *ngIf="survey && survey.length > 0" class="card card-plain">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-xl-4 col-sm-6"></div>
+      <div class="col-xl-4 col-sm-6">
+        <div class="input-group">
+          <input class="form-control border-left" placeholder="Search" type="text">
+          <div class="input-group-append">
+            <span class="input-group-text transparent">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <tr>
-          <th *ngFor="let item of head">{{item}}</th>
-        </tr>
+          <tr>
+            <th *ngFor="let item of head">{{item}}</th>
+            <th class="text-center">Actions</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of survey">
-          <td *ngIf="item.hasOwnProperty('name')">{{item.name}}</td>
-          <td *ngIf="!item.hasOwnProperty('name')"></td>
+          <tr *ngFor="let item of survey">
+            <td *ngIf="item.hasOwnProperty('name')">{{item.name}}</td>
+            <td *ngIf="!item.hasOwnProperty('name')"></td>
 
-          <td *ngIf="item.hasOwnProperty('gender')">{{item.gender}}</td>
-          <td *ngIf="!item.hasOwnProperty('gender')"></td>
+            <td *ngIf="item.hasOwnProperty('gender')">{{item.gender}}</td>
+            <td *ngIf="!item.hasOwnProperty('gender')"></td>
 
-          <td *ngIf="item.hasOwnProperty('birthDay')">{{item.birthDay | date}}</td>
-          <td *ngIf="!item.hasOwnProperty('birthDay')"></td>
+            <td *ngIf="item.hasOwnProperty('birthDay')">{{item.birthDay | date}}</td>
+            <td *ngIf="!item.hasOwnProperty('birthDay')"></td>
 
-          <td *ngIf="item.hasOwnProperty('postCode')">{{item.postCode}}</td>
-          <td *ngIf="!item.hasOwnProperty('postCode')"></td>
+            <td *ngIf="item.hasOwnProperty('postCode')">{{item.postCode}}</td>
+            <td *ngIf="!item.hasOwnProperty('postCode')"></td>
 
-          <td *ngIf="item.hasOwnProperty('email')">{{item.email}}</td>
-          <td *ngIf="!item.hasOwnProperty('email')"></td>
-        </tr>
+            <td *ngIf="item.hasOwnProperty('email')">{{item.email}}</td>
+            <td *ngIf="!item.hasOwnProperty('email')"></td>
+            <td class="td-actions text-center">
+              <button ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm ">
+                <i class="now-ui-icons ui-2_settings-90"></i>
+              </button>
+              <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm ">
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

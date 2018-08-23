@@ -46,7 +46,7 @@ export class UserService {
 
 
     checkExistEmail(email) {
-        return this.http.post(`${environment.domain}/api/users/check`, {email: email}).pipe(
+        return this.http.post(`${environment.domain}/api/users/check`, { email: email }).pipe(
             map((res: any) => {
                 return res;
             }),
@@ -55,7 +55,7 @@ export class UserService {
     }
 
     forgotPassword(email) {
-        return this.http.post(`${environment.domain}/api/users/forgot-passowrd`, {email: email}).pipe(
+        return this.http.post(`${environment.domain}/api/users/forgot-passowrd`, { email: email }).pipe(
             map((res: any) => {
                 return res;
             }),
@@ -64,7 +64,7 @@ export class UserService {
     }
 
     resetPassword(resetString, passowrd) {
-        return this.http.post(`${environment.domain}/api/users/reset-passowrd`, {resetString: resetString, newPassowrd: passowrd}).pipe(
+        return this.http.post(`${environment.domain}/api/users/reset-passowrd`, { resetString: resetString, newPassowrd: passowrd }).pipe(
             map((res: any) => {
                 return res;
             }),
@@ -93,6 +93,13 @@ export class UserService {
     authentication(email, password) {
         return this.http.post(`${environment.domain}/api/users/login`, { email: email, password: password }).pipe(
             map((res) => res),
+            catchError(this.handleError),
+        );
+    }
+
+    delete(id) {
+        return this.http.delete(`${environment.domain}/api/users/${id}`).pipe(
+            map((res: any) => res.ok),
             catchError(this.handleError),
         );
     }

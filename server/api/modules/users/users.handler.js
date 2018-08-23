@@ -165,7 +165,7 @@ export function login(req, res, next) {
     if (err || !user) {
       var err = new Error('Wrong email or password.');
       err.status = 401;
-      return next(error);
+      return next(err);
     }
 
     // test a matching password
@@ -185,4 +185,13 @@ export function login(req, res, next) {
       }
     });
   });
+}
+
+export function deleteUser(req, res) {
+  User.deleteOne({"_id": req.params.id}, function (err, obj) {
+      // console.log(err);
+      console.log(obj);
+    })
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(500))
 }
