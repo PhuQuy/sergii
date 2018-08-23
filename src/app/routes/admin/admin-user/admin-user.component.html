@@ -38,10 +38,10 @@
             <td>{{user.activeSubscription}}</td>
             <td>{{user.dayLeft}}</td>
             <td class="td-actions text-right">
-              <button ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm ">
-                <i class="now-ui-icons ui-2_settings-90"></i>
-              </button>
-              <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm ">
+              <a href="mailto:{{user.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
+                <i class="far fa-envelope-open email-envelope"></i>
+              </a>             
+              <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm" (click)="delete(user._id)">
                 <i class="now-ui-icons ui-1_simple-remove"></i>
               </button>
             </td>

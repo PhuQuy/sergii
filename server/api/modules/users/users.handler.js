@@ -4,9 +4,9 @@ import transporter from './../../lib';
 
 const User = mongoose.model('User');
 const Role = {
-    "ADMIN": 1,
-    "USER": 2
-  }
+  "ADMIN": 1,
+  "USER": 2
+}
 export async function getAllUsers(req, res, next) {
   User.find()
     .then((users) => res.send(users))
@@ -44,7 +44,7 @@ export function checkExistEmail(req, res, next) {
     .then((user) => {
       console.log(user);
       console.log(req.body.email);
-      
+
 
       if (user) {
         res.send(true);
@@ -175,4 +175,13 @@ export function login(req, res, next) {
       }
     });
   });
+}
+
+export function deleteUser(req, res) {
+  User.deleteOne({"_id": req.params.id}, function (err, obj) {
+      // console.log(err);
+      console.log(obj);
+    })
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(500))
 }
