@@ -12,8 +12,11 @@ import { ServeyService as SurveyService } from '../../../services/servey.service
 export class AdminSurveyComponent implements OnInit {
 
   public survey: Array<any>;
-  public head = [ 'Name', 'Gender', 'Birthday', 'Postcode', 'Email' ];
-
+  public head = [ { key: 'name', value: 'Name' }, { key: 'gender', value: 'Gender' },
+   { key: 'birthDay', value: 'Birthday' },
+   { key: 'postCode', value: 'Postcode' }, { key: 'email', value: 'Email' } ];
+  order: string = '';
+  reverse: boolean = false;
   constructor(private surveyService: SurveyService) {
   }
 
@@ -28,4 +31,10 @@ export class AdminSurveyComponent implements OnInit {
     }));
   }
 
+  sortByHeader(item) {
+    if (item.key === this.order) {
+      this.reverse = !this.reverse;
+    }
+    this.order = item.key;
+  }
 }

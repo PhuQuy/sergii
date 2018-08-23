@@ -19,26 +19,23 @@
       <table class="table">
         <thead>
           <tr>
-            <th *ngFor="let item of head" (click)="sortByHeader(item)">{{item}}
-              <i class="fas" [ngClass]="{'fa-sort-up': (item.property === order && reverse),
-                                          'fa-sort-down': (item.property === order && !reverse)}">
+            <th *ngFor="let item of head" (click)="sortByHeader(item)">{{item.value}}
+              <i class="fas" [ngClass]="{'fa-sort-up': (item.key === order && reverse),
+                                          'fa-sort-down': (item.key === order && !reverse)}">
               </i>
             </th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="ng-star-inserted" *ngFor="let user of users | orderBy: order :reverse ">
-            <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
-            <td *ngIf="!user.name"></td>
-            <td>{{user.email}}</td>
-            <td>{{user.postCode}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.registrationDate}}</td>
-            <td>{{user.activeSubscription}}</td>
-            <td>{{user.daysLeft}}</td>
+        <tbody *ngIf="orders && orders.length > 0">
+          <tr class="ng-star-inserted" *ngFor="let order of orders | orderBy: order :reverse ">
+            <td>{{order.customerName}}</td>
+            <td>{{order.email}}</td>
+            <td>{{order.settlementDate}}</td>
+            <td>{{order.subscriptionType}}</td>
+            <td>{{order.endDate}}</td>
             <td class="td-actions text-right">
-              <a href="mailto:{{user.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
+              <a href="mailto:{{order.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
                 <i class="far fa-envelope-open email-envelope"></i>
               </a>             
               <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm" (click)="delete(user._id)">

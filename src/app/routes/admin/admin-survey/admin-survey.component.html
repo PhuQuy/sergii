@@ -20,32 +20,26 @@
         <thead>
           <tr>
             <th *ngFor="let item of head">{{item}}</th>
+            <i class="fas" [ngClass]="{'fa-sort-up': (item.key === order && reverse),
+                                      'fa-sort-down': (item.key === order && !reverse)}">
+            </i>
             <th class="text-center">Actions</th>
           </tr>
         </thead>
-        <tbody *ngIf="survey && survey.length > 0" >
+        <tbody *ngIf="survey && survey.length > 0">
           <tr *ngFor="let item of survey">
-            <td *ngIf="item.hasOwnProperty('name')">{{item.name}}</td>
-            <td *ngIf="!item.hasOwnProperty('name')"></td>
-
-            <td *ngIf="item.hasOwnProperty('gender')">{{item.gender}}</td>
-            <td *ngIf="!item.hasOwnProperty('gender')"></td>
-
-            <td *ngIf="item.hasOwnProperty('birthDay')">{{item.birthDay | date}}</td>
-            <td *ngIf="!item.hasOwnProperty('birthDay')"></td>
-
-            <td *ngIf="item.hasOwnProperty('postCode')">{{item.postCode}}</td>
-            <td *ngIf="!item.hasOwnProperty('postCode')"></td>
-
-            <td *ngIf="item.hasOwnProperty('email')">{{item.email}}</td>
-            <td *ngIf="!item.hasOwnProperty('email')"></td>
-            <td class="td-actions text-center">
-              <button ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm ">
-                <i class="now-ui-icons ui-2_settings-90"></i>
-              </button>
-              <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm ">
-                <i class="now-ui-icons ui-1_simple-remove"></i>
-              </button>
+            <td>{{item?.name}}</td>
+            <td>{{item?.gender}}</td>
+            <td>{{item?.birthDay | date}}</td>
+            <td>{{item?.postCode}}</td>
+            <td>{{item?.email}}</td>
+            <td>
+            <button ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm ">
+              <i class="now-ui-icons ui-2_settings-90"></i>
+            </button>
+            <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm ">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
             </td>
           </tr>
         </tbody>

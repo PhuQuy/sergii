@@ -18,7 +18,6 @@ export class AdminUserComponent implements OnInit {
 
   order: string = '';
   reverse: boolean = false;
-  public orderHead = ['Customer Name', 'Email', 'Settlement Date', 'Subscription Type Purchased', 'Day Till End of Subscription'];
   constructor(private userService: UserService, private modalService: NgbModal) {
   }
 
