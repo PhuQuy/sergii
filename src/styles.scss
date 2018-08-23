@@ -4384,3 +4384,16 @@ input:checked+.page_delay-option-label:after {
 .btn-outline-danger {
   background-color: #ed5e68 !important;
 }
+
+.search .form-group .form-control,
+.input-group .form-control {
+  padding: 10px 18px 10px 18px !important;
+}
+
+.search .input-group input:hover+.input-group-text.transparent {
+  border: none;
+}
+
+.input-group .input-group-append .input-group-text {
+  padding: 10px 18px 10px 10px !important
+}

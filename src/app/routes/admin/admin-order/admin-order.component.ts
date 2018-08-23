@@ -11,6 +11,7 @@ export class AdminOrderComponent implements OnInit {
   { key: 'subscriptionType', value: 'Subscription Type' }, { key: 'endDate', value: 'End Date' }];
   order: string = '';
   reverse: boolean = false;
+  term = '';
   constructor() { }
 
   orders = [

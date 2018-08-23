@@ -2,9 +2,9 @@
   <div class="card-header">
     <div class="row">
       <div class="col-xl-4 col-sm-6"></div>
-      <div class="col-xl-4 col-sm-6">
+      <div class="col-xl-4 col-sm-6 search">
         <div class="input-group">
-          <input class="form-control border-left" placeholder="Search" type="text">
+          <input class="form-control border-left" placeholder="Search" type="text" [(ngModel)]="term">
           <div class="input-group-append">
             <span class="input-group-text transparent">
               <i class="fas fa-search"></i>
@@ -27,10 +27,10 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody *ngIf="users && users.length > 0" >
-          <tr class="ng-star-inserted" *ngFor="let user of users | orderBy: order :reverse ">
+        <tbody *ngIf="users && users.length > 0">
+          <tr class="ng-star-inserted" *ngFor="let user of users | orderBy: order :reverse |filter:term">
             <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
-            <td *ngIf="!user.name"></td>
+            <td *ngIf="!user.name">phuquy</td>
             <td>{{user.email}}</td>
             <td>{{user.postCode}}</td>
             <td>{{user.address}}</td>
@@ -40,7 +40,7 @@
             <td class="td-actions text-right">
               <a href="mailto:{{user.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
                 <i class="far fa-envelope-open email-envelope"></i>
-              </a>             
+              </a>
               <button ngbtooltip="Remove" type="button" class="btn btn-danger btn-icon btn-sm" (click)="delete(user._id)">
                 <i class="now-ui-icons ui-1_simple-remove"></i>
               </button>

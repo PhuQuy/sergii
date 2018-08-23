@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AuthGuard } from './core/auth.guard';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -35,8 +36,8 @@ import { AdminOrderComponent } from './routes/admin/admin-order/admin-order.comp
     NotfoundComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    ComfirmationModalComponent,
     AdminOrderComponent,
+    ComfirmationModalComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,7 @@ import { AdminOrderComponent } from './routes/admin/admin-order/admin-order.comp
     NgbModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [ComfirmationModalComponent],
   providers: [ AuthGuard ],

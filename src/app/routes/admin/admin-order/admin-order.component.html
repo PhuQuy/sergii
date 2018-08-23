@@ -4,7 +4,7 @@
       <div class="col-xl-4 col-sm-6"></div>
       <div class="col-xl-4 col-sm-6">
         <div class="input-group">
-          <input class="form-control border-left" placeholder="Search" type="text">
+          <input class="form-control border-left" placeholder="Search" type="text" [(ngModel)]="term">
           <div class="input-group-append">
             <span class="input-group-text transparent">
               <i class="fas fa-search"></i>
@@ -24,17 +24,17 @@
                                           'fa-sort-down': (item.key === order && !reverse)}">
               </i>
             </th>
-            <th>Actions</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody *ngIf="orders && orders.length > 0">
-          <tr class="ng-star-inserted" *ngFor="let order of orders | orderBy: order :reverse ">
+          <tr class="ng-star-inserted" *ngFor="let order of orders | orderBy: order :reverse | filter:term">
             <td>{{order.customerName}}</td>
             <td>{{order.email}}</td>
             <td>{{order.settlementDate}}</td>
             <td>{{order.subscriptionType}}</td>
             <td>{{order.endDate}}</td>
-            <td class="td-actions text-right">
+            <td class="td-actions text-center">
               <a href="mailto:{{order.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
                 <i class="far fa-envelope-open email-envelope"></i>
               </a>             

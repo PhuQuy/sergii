@@ -10,6 +10,7 @@ import { ComfirmationModalComponent } from '../../../components/comfirmation-mod
 })
 export class AdminUserComponent implements OnInit {
   public users;
+  term = '';
   public customerHead = [{ label: 'Name', property: 'name.last' }, { label: 'Email', property: 'email' },
   { label: 'Postal Code', property: 'postalCode' }, { label: 'Address', property: 'address' },
   { label: 'Registration Date', property: 'registrationDate' },

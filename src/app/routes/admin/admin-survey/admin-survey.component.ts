@@ -7,16 +7,17 @@ import { ServeyService as SurveyService } from '../../../services/servey.service
 @Component({
   selector: 'app-admin-survey',
   templateUrl: './admin-survey.component.html',
-  styleUrls: [ './admin-survey.component.css' ],
+  styleUrls: ['./admin-survey.component.css'],
 })
 export class AdminSurveyComponent implements OnInit {
 
   public survey: Array<any>;
-  public head = [ { key: 'name', value: 'Name' }, { key: 'gender', value: 'Gender' },
-   { key: 'birthDay', value: 'Birthday' },
-   { key: 'postCode', value: 'Postcode' }, { key: 'email', value: 'Email' } ];
+  public head = [{ key: 'name', value: 'Name' }, { key: 'gender', value: 'Gender' },
+  { key: 'birthDay', value: 'Birthday' },
+  { key: 'postCode', value: 'Postcode' }, { key: 'email', value: 'Email' }];
   order: string = '';
   reverse: boolean = false;
+  term = '';
   constructor(private surveyService: SurveyService) {
   }
 
