@@ -19,7 +19,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th *ngFor="let item of head" (click)="sortByHeader(item)">{{item.value}}
+            <th class="text-center" *ngFor="let item of head" (click)="sortByHeader(item)">{{item.value}}
               <i class="fas" [ngClass]="{'fa-sort-up': (item.key === order && reverse),
                                       'fa-sort-down': (item.key === order && !reverse)}">
               </i>
@@ -29,11 +29,11 @@
         </thead>
         <tbody *ngIf="survey && survey.length > 0">
           <tr *ngFor="let item of survey | orderBy: order :reverse | filter:term">
-            <td>{{item?.name}}</td>
-            <td>{{item?.gender}}</td>
-            <td>{{item?.birthDay | date}}</td>
-            <td>{{item?.postCode}}</td>
-            <td>{{item?.email}}</td>
+            <td class="text-center">{{item?.name}}</td>
+            <td class="text-center">{{item?.gender}}</td>
+            <td class="text-center">{{item?.birthDay | date}}</td>
+            <td class="text-center">{{item?.postCode}}</td>
+            <td class="text-center">{{item?.email}}</td>
             <td class="td-actions text-center">
               <button ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm ">
                 <i class="now-ui-icons ui-2_settings-90"></i>

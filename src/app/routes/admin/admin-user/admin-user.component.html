@@ -19,25 +19,24 @@
       <table class="table">
         <thead>
           <tr>
-            <th *ngFor="let item of customerHead" (click)="sortByHeader(item)">{{item.label}}
+            <th class="text-center" *ngFor="let item of customerHead" (click)="sortByHeader(item)">{{item.label}}
               <i class="fas" [ngClass]="{'fa-sort-up': (item.property === order && reverse),
                                           'fa-sort-down': (item.property === order && !reverse)}">
               </i>
             </th>
-            <th>Actions</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody *ngIf="users && users.length > 0">
           <tr class="ng-star-inserted" *ngFor="let user of users | orderBy: order :reverse |filter:term">
-            <td *ngIf="user.name">{{user.name.last}} {{user.name.first}}</td>
-            <td *ngIf="!user.name">phuquy</td>
-            <td>{{user.email}}</td>
-            <td>{{user.postCode}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.registrationDate}}</td>
-            <td>{{user.activeSubscription}}</td>
-            <td>{{user.daysLeft}}</td>
-            <td class="td-actions text-right">
+            <td class="text-center">{{user.name?.last}} {{user.name?.first}}</td>
+            <td class="text-center">{{user.email}}</td>
+            <td class="text-center">{{user.postCode}}</td>
+            <td class="text-center">{{user.address}}</td>
+            <td class="text-center">{{user.registrationDate}}</td>
+            <td class="text-center">{{user.activeSubscription}}</td>
+            <td class="text-center">{{user.daysLeft}}</td>
+            <td class="td-actions text-center">
               <a href="mailto:{{user.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
                 <i class="far fa-envelope-open email-envelope"></i>
               </a>

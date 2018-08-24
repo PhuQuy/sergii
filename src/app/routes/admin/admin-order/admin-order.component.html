@@ -19,7 +19,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th *ngFor="let item of head" (click)="sortByHeader(item)">{{item.value}}
+            <th class="text-center" *ngFor="let item of head" (click)="sortByHeader(item)">{{item.value}}
               <i class="fas" [ngClass]="{'fa-sort-up': (item.key === order && reverse),
                                           'fa-sort-down': (item.key === order && !reverse)}">
               </i>
@@ -29,11 +29,11 @@
         </thead>
         <tbody *ngIf="orders && orders.length > 0">
           <tr class="ng-star-inserted" *ngFor="let order of orders | orderBy: order :reverse | filter:term">
-            <td>{{order.customerName}}</td>
-            <td>{{order.email}}</td>
-            <td>{{order.settlementDate}}</td>
-            <td>{{order.subscriptionType}}</td>
-            <td>{{order.endDate}}</td>
+            <td class="text-center">{{order.customerName}}</td>
+            <td class="text-center">{{order.email}}</td>
+            <td class="text-center">{{order.settlementDate}}</td>
+            <td class="text-center">{{order.subscriptionType}}</td>
+            <td class="text-center">{{order.endDate}}</td>
             <td class="td-actions text-center">
               <a href="mailto:{{order.email}}" ngbtooltip="Edit Profile" type="button" class="btn btn-success btn-icon btn-sm">
                 <i class="far fa-envelope-open email-envelope"></i>
