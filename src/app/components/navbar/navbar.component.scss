@@ -1,15 +1,19 @@
 .navbar a:not(.btn):not(.dropdown-item) {
-    color: black;
+  color: black;
 }
 
 .navbar {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-.users-icon{
-    position: relative;
-    text-align: center;
-    width: 30px;
-    font-size: 16px;
-    top: 2px;
+.users-icon {
+  position: relative;
+  text-align: center;
+  width: 30px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.admin-greeting {
+    text-transform: none;
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.states';
+import { LogOut } from '../../store/actions/auth.actions';
 
 @Component({
     selector: 'app-navbar',
@@ -11,7 +14,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     user: string;
 
-    constructor(public location: Location, private element: ElementRef) {
+    constructor(public location: Location, private element: ElementRef, private store: Store<AppState>) {
         this.sidebarVisible = false;
     }
 
@@ -63,5 +66,9 @@ export class NavbarComponent implements OnInit {
         else {
             return false;
         }
+    }
+
+    logout() {
+        this.store.dispatch(new LogOut);
     }
 }
