@@ -4,8 +4,8 @@ const authMiddleware = require("./../../authenticate");
 
 export function init(api){
   const router = new Router();
-//   router.get('/', authMiddleware, userHandler.getAllUsers);
-  router.get('/', userHandler.getAllUsers);
+  router.get('/', authMiddleware, userHandler.getAllUsers);
+//   router.get('/', userHandler.getAllUsers);
 
   router.get('/:id', userHandler.getAllUserById);
   router.delete('/:id', userHandler.deleteUser);

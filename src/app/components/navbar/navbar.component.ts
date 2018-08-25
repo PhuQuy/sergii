@@ -3,6 +3,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.states';
 import { LogOut } from '../../store/actions/auth.actions';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     user: string;
 
-    constructor(public location: Location, private element: ElementRef, private store: Store<AppState>) {
+    constructor(public location: Location, private element: ElementRef, private store: Store<AppState>, private router: Router) {
         this.sidebarVisible = false;
     }
 
@@ -70,5 +71,6 @@ export class NavbarComponent implements OnInit {
 
     logout() {
         this.store.dispatch(new LogOut);
+        this.router.navigateByUrl('/');
     }
 }
