@@ -17,3 +17,7 @@
 tr th {
   cursor: pointer;
 }
+
+.card-header {
+  background-color: transparent;
+}
