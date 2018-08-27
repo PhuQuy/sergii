@@ -15,5 +15,12 @@
 }
 
 .admin-greeting {
-    text-transform: none;
+  text-transform: none;
+}
+
+.navbar-brand img {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -2px;
 }

@@ -97,6 +97,13 @@ export class UserService {
         );
     }
 
+    logout() {
+        return this.http.post(`${environment.domain}/api/users/logout`, {}).pipe(
+            map((res) => res),
+            catchError(this.handleError),
+        );
+    }
+
     delete(id) {
         return this.http.delete(`${environment.domain}/api/users/${id}`).pipe(
             map((res: any) => res),

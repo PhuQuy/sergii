@@ -151,7 +151,7 @@ export async function createUser(req, res) {
 
 export function login(req, res, next) {
   if (req.body.email == config.adminEmail && req.body.password == config.adminPassword) {
-    req.session.userId = 999;
+    req.session.admin = true;
     res.send({
       email: config.adminEmail,
       password: config.adminPassword,
@@ -193,4 +193,10 @@ export function deleteUser(req, res) {
   }).then(() => {
     res.send(true)
   }).catch(() => res.sendStatus(500))
+}
+
+export function logout(req, res, next) {
+  req.session.admin = false;
+  req.session.userId = null;
+  res.send(true);
 }

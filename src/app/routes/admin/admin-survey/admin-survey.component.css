@@ -13,3 +13,7 @@
 .transparent {
     background-color: transparent;
 }
+
+tr th {
+    cursor: pointer;
+  }

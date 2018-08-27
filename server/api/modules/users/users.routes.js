@@ -18,6 +18,7 @@ export function init(api){
 
   router.post('/', userHandler.createUser);
   router.post('/login', userHandler.login);
+  router.post('/logout', userHandler.logout);
 
   api.use('/users', router);
 }

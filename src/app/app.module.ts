@@ -9,6 +9,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { AuthGuard } from './core/auth.guard';
+import { AdminAuthGuard } from './core/adminAuth.guard';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './routes/home/home.component';
@@ -56,7 +58,7 @@ import { reducers } from './store/app.states';
     Ng2SearchPipeModule
   ],
   entryComponents: [ComfirmationModalComponent],
-  providers: [ AuthGuard ],
+  providers: [ AuthGuard, AdminAuthGuard ],
   bootstrap: [ AppComponent ],
 })
 export class AppModule {

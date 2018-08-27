@@ -12,6 +12,8 @@ import { LoginComponent } from './routes/login/login.component';
 import { PasswordComponent } from './routes/password/password.component';
 import { UserComponent } from './routes/user/user.component';
 import { AuthGuard } from './core/auth.guard';
+import { AdminAuthGuard } from './core/adminAuth.guard';
+
 import {
     AdminComponent,
     AdminSurveyComponent,
@@ -55,7 +57,7 @@ const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AdminAuthGuard],
         children: [
             {
                 path: 'users',
