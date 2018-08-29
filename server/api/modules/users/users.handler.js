@@ -101,8 +101,8 @@ export function forGotPassword(req, res, next) {
           console.log(user);
 
           let mailOptions = {
-            // from: config.emailSendFrom,
-            from: 'phuquy.uit@gmail.com',
+            from: config.emailSendFrom,
+            // from: 'phuquy.uit@gmail.com',
             to: req.body.email,
             subject: 'Sending Email from Femito',
             template: 'reset-password',

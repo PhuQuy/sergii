@@ -35,8 +35,8 @@ export function createSurvey(req, res) {
   });
   survey.save().then(() => {
       let mailOptions = {
-        // from: config.emailSendFrom,
-        from: 'phuquy.uit@gmail.com',
+        from: config.emailSendFrom,
+        // from: 'phuquy.uit@gmail.com',
 
         to: survey.email,
         subject: 'Sending Email from Femito',
